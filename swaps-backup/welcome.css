@@ -1,0 +1,15 @@
+body {
+    background-image: url("background.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    } 
+
+form {
+    
+    margin-top: -5%;
+    margin-right: 5%;
+    padding-bottom: 5%;
+    }
+    
