@@ -3,14 +3,23 @@ const { UserModel } = require('../models');
 
 module.exports = {
     register: async (req, res) => {
+        
+        console.log("register module hit!")
         try {
+            
             const user = await UserModel.create(req.body)
             const userData = await user.save();
             req.session.save(() => {
-                req.session.userId = userData.id;
+                req.session.userId = userData._id;
                 req.session.loggedIn = true;
                 res.status(200).json(userData);
+                console.log(userData)
+                console.log(req.session)
             });
+            
+            // userData.loggedIn = true
+            // console.log("userData", userData)
+            // res.status(200).json(userData);
         } catch (err) {
             res.status(400).json(err);
         }   

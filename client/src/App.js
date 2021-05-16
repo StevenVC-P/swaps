@@ -1,44 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-import React, {useEffect, useState } from "react";
-import API from './utils/API';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Dashboard from "./components/Dashboard/Dashboard";
+import Preferences from "./components/Preferences/Preferences";
+import Login from "./components/Login/Login";
 
 
-
-var DomParser = require('react-native-html-parser').DOMParser
 
 function App() {
 
-  const scrape = async () => {
-    const res = await API.scrapeURL();
-    const html = await res.data.body
-    let doc = await new DomParser().parseFromString(html, "text/html")
-    console.log(doc.getElementsByTagName('img'))
+  const [loggedIn, setLoggedIn] = useState();
+
+  if(!loggedIn) {
+    return <Login setLoggedIn={setLoggedIn} />
   }
 
-  useEffect(() => {
-    scrape()
-}, [])
-
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <h1>Application</h1>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/preferences">
+            <Preferences />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
-}
+};
+
 
 export default App;
