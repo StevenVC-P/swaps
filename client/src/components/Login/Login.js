@@ -27,7 +27,7 @@ export default function Login({setLoggedIn}) {
                     setLoggedIn(true)
                     console.log("Success! Logged in!")
                 } else {
-                    console.log( res.status)
+                    console.log("FAIL", res.status)
                 }
                 
             })
