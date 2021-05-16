@@ -25,12 +25,6 @@ export default function Login( { setLoggedIn } ) {
             password: formObject.password
         })
             .then(res => {
-                console.log(res)
-                if (res.status === 200){
-                    setLoggedIn(true)
-                } else {
-                    setLoggedIn(false)
-                }
                   
             })
             .catch(err => console.log(err));

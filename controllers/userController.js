@@ -57,6 +57,14 @@ module.exports = {
         } else {
             res.status(404).end();
         }
+    },
+
+    currentSession: async (req, res) => {
+        if (req.session.loggedIn) {
+            res.send(true)
+        } else {
+            res.send(false)
+        }
     }
 
 }

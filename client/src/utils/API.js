@@ -7,5 +7,9 @@ export default {
         
         return axios.post("/api/user/register", userData);
         
-    } 
+    },
+
+    currentSession: function(session) {
+        return axios.get('/api/user/current-session', session)
+    }
 }

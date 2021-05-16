@@ -9,25 +9,6 @@ const { UserModel } = require("../../models");
 router.route('/register')
     .post(userController.register)
 
-
-// router.post("/register", async (req, res) => {
-    
-//     try {
-       
-//         const user = await UserModel.create(req.body)
-//         const userData = await user.save();
-//         req.session.save(() => {
-//             req.session.userId = userData.id;
-//             req.session.loggedIn = true;
-//             res.status(200).json(userData);
-//             console.log("session Info", req.session)
-//         });
-//         // res.status(200).json(userData);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }  
-// });
-
 //login checks user credentials
 router.route('/login')
     .post(userController.login)
@@ -35,7 +16,8 @@ router.route('/login')
 router.route('/logout')
     .post(userController.logout)    
 
-
+router.route('/current-session')
+    .get(userController.currentSession)
 
 
 

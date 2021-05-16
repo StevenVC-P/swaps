@@ -3,12 +3,21 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from "./components/Dashboard/Dashboard";
 import Preferences from "./components/Preferences/Preferences";
 import Login from "./components/Login/Login";
-
+import API from "./utils/API";
 
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState();
+
+  useEffect(() => {
+    API.currentSession()
+      .then(res => {
+        console.log(res)
+        setLoggedIn(res.data)
+      })
+  }, []);
+
 
   if(!loggedIn) {
     return <Login setLoggedIn={setLoggedIn} />
