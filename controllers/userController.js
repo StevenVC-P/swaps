@@ -26,18 +26,20 @@ module.exports = {
     },
 
     login: async (req, res) => {
+        
         try {
             const userData = await UserModel.findOne({email: req.body.email}).exec();
+            console.log(userData)
             if(!userData){
-                return res.status(400).send({ message: "Wrong email or password, please try again"})
+                return res.status(400).send({message: "Wrong email or password, please try again"})
             }
-            user.comparePassword(req.body.password, (error, match) => {
+            userData.comparePassword(req.body.password, (error, match) => {
                 if(!match) {
                     return res.status(400).send({ message: "The password is invalid"});
                 }
             });
             req.session.save(() => {
-                req.session.userId = userData.id;
+                req.session.userId = userData._id;
                 req.session.loggedIn = true;
                 res.json({ 
                     user: userData,

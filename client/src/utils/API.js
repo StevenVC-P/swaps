@@ -11,5 +11,9 @@ export default {
 
     currentSession: function(session) {
         return axios.get('/api/user/current-session', session)
+    },
+
+    loginUser: function(userData) {
+        return axios.post('/api/user/login', userData)
     }
 }

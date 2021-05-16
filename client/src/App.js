@@ -9,32 +9,40 @@ import API from "./utils/API";
 function App() {
 
   const [loggedIn, setLoggedIn] = useState();
+  const [readyRender, setReadyRender] = useState(false);
 
   useEffect(() => {
     API.currentSession()
       .then(res => {
         console.log(res)
         setLoggedIn(res.data)
+        setReadyRender(true)
+        
       })
   }, []);
 
-
-  if(!loggedIn) {
-    return <Login setLoggedIn={setLoggedIn} />
-  }
+  
 
   return (
     <div className="wrapper">
       <h1>Application</h1>
       <BrowserRouter>
-        <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/preferences">
-            <Preferences />
-          </Route>
-        </Switch>
+
+        { loggedIn === false ? (
+          <Login setLoggedIn={setLoggedIn} />
+        ) : (
+
+            <Switch>
+              <Route path="/dashboard">
+                <Dashboard />
+              </Route>
+              <Route path="/preferences">
+                <Preferences />
+              </Route>
+            </Switch>
+          
+        )}
+        
       </BrowserRouter>
     </div>
   );

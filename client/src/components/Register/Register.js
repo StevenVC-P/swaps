@@ -25,9 +25,15 @@ export default function Login( { setLoggedIn } ) {
             password: formObject.password
         })
             .then(res => {
-                  
+                console.log('Register Res', res)
+                if(res.status === 200){
+                    setLoggedIn(true)
+                    console.log("Success! Logged in!")
+                } else {
+                    console.log(res.status)
+                }
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log("REGISTRATION ERROR", err));
         }
     };
 
