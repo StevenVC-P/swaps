@@ -23,8 +23,7 @@
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "mongoose": "^5.12.9",
-    "querystring": "^0.2.1"
+    "mongoose": "^5.12.9"
   },
   "devDependencies": {
     "concurrently": "^6.1.0",
