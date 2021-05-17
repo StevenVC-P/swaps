@@ -1,0 +1,117 @@
+.content {
+    background: linear-gradient(#B9C3BB, #B9BBC3, #C3B9C0);
+}
+
+header {
+    padding-top: 5%;
+    padding-left: 5%;
+    font-family: 'Raleway', sans-serif;
+    
+}
+
+#dropdownMenuButton {
+    
+    padding: 6px 12px;
+    width: 190px;
+    height: 60px;
+}
+
+#dropdownMenuButton:hover {
+    background-color: #738678;
+    color: white;   
+}
+
+
+
+
+main {
+    margin-top: 1%;
+    width: 50%;
+    margin-left: 40%;
+    font-family: 'Raleway', sans-serif;
+    padding-bottom: 50%;
+}
+
+footer {
+    text-align: left;
+    background-color: #738678;
+    color: white;
+    margin-bottom: 0;
+    
+    padding: .5%;
+    font-family: 'Raleway', sans-serif;
+}
+#swap {
+    color: #738678;
+    text-align: right;
+    margin-top: -10%;
+    margin-right: 14%;
+    font-size: 108px;
+}
+
+#swap:hover {
+    
+    color: #867381;
+}
+
+.btn.btn-primary {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    margin-left: 1%;
+    height: 60px;
+    width: 190px;
+    
+    
+}
+
+.btn.btn-primary:hover {
+    background-color: #867381;
+    color: white;
+    border: 1px solid #867381;
+}
+
+.btn.btn-outline-success {
+    border: .5px solid black;
+    color: black;
+    margin-top: 5%;
+    margin-left: 45%;
+}
+
+.btn.btn-outline-success:hover {
+    background-color: #737886;
+    color: white;
+    border: 1px solid #737886;
+}
+
+.container-fluid {
+    margin-top: 10%;
+    padding-bottom: 50%;
+    font-family: 'Raleway', sans-serif;
+}
+
+b {
+    font-size: 108px;
+    color:#738678;
+    margin-left: 50%;
+}
+
+b:hover {
+    color:#867381;
+}
+
+form {
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 5%;
+    padding-bottom: 5%;
+    font-family: 'Raleway', sans-serif;
+}
+
+.card {
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    font-family: 'Raleway', sans-serif;
+}
