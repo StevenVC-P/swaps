@@ -2,16 +2,18 @@ import React from "react";
 
 function Navbar() {
   return (
-    <footer className="footer">
-      <nav className="navbar-expand navbar-light">
-        <ul className="nav navbar-nav d-flex justify-content-between">
-          <li className="nav-itema"><a className="nav-link" href="Steven.Vancourt@gmail.com" target = "_blank" rel="noopener noreferrer">E-mail: Steven.Vancourt@gmail.com</a></li>
-          <li className="nav-itema"><div className="nav-link">Cell Phone: 715-864-0930</div></li>
-          <li className="nav-itema"><a className="nav-link" href="https://github.com/StevenVC-P" target = "_blank" rel="noopener noreferrer">GitHub: https://github.com/StevenVC-P</a></li>
-          <li className="nav-itema"><a className="nav-link" href="https://www.linkedin.com/in/steven-vancourt-cia-08375263/" target = "_blank" rel="noopener noreferrer">LinkedIn: steven-vancourt-cia-08375263</a></li>
-        </ul>
-      </nav>
-    </footer>
+    <nav class="nav justify-content-end">
+              
+            <form class="px-4 py-3">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Email"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+        </nav>
   );
 }
 

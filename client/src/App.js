@@ -5,10 +5,10 @@ import API from "./utils/API";
 import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Post from './pages/Post';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
 import Login from "./components/Login/Login";
+import Header from "./components/Header";
 import './App.css';
 
 function App() {
@@ -27,8 +27,8 @@ function App() {
   }, []);
 
   return (
-    <div className="wrapper">
-      <h1>Application</h1>
+    <div >
+     <Header />
       <Router>
 
         { loggedIn === false ? (
@@ -36,19 +36,20 @@ function App() {
         ) : (
 
             <Switch>
-              <Navbar />
+              
               <Wrapper>
                 <Route exact path="/swap" component={Landing} />
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/post" component={Post} />
                 </Wrapper>
-              <Footer />
+              
             </Switch>
           
         )}
         
       </Router>
+      <Footer />
     </div>
 
   );

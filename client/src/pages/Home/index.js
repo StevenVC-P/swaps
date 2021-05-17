@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Cardsm from "../../components/Cardsm";
+import MainFeed from "../../components/MainFeed";
 import Filterbar from "../../components/Filterbar";
 import Favbar from "../../components/Favbar";
-import Wrapper from "../../components/Wrapper";
 import products from "../../products.json";
 
 function Home () {
@@ -13,11 +12,15 @@ function Home () {
     }, []);
 
         return(
-            <h1>
+            <div class="container-fluid">
+            <div class ="row">
+                <div class = "col-sm">
                 <Filterbar />
-                <Wrapper>
+                </div>
+                <div class = "col-sm">
+                <h2>Search Results</h2>
                     {productState.map(userPost => (
-                        <Cardsm
+                        <MainFeed
                         id={userPost.id}
                         name={userPost.name}
                         type={userPost.type}
@@ -25,9 +28,16 @@ function Home () {
                         url={userPost.url}
                         />
                     ))}
-                </Wrapper>
+                    </div>
+                    <div class = "col-sm">
+                
+                    <h3>My Favorites</h3>
                 <Favbar />
-            </h1>
+                </div>
+
+
+            </div>
+            </div>
         )
 }
 

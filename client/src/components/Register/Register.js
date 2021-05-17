@@ -38,28 +38,25 @@ export default function Login( { setLoggedIn } ) {
     };
 
   return(
-      <>
-        <div className="login-wrapper">
-            <h1>Sign Up!</h1>
-            <form>
-            <label>
-                <p>Username</p>
-                <input type="text" name="username" onChange={handleInputChange}/>
-            </label>
-            <label>
-                <p>Email</p>
-                <input type="email" name="email" onChange={handleInputChange} />
-            </label>
-            <label>
-                <p>Password</p>
-                <input type="password" name="password" onChange={handleInputChange}/>
-            </label>
-            <div>
-                <button type="submit" onClick={handleFormSubmit}>Submit</button>
-            </div>
-            </form>
-        </div>
       
-    </>
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="email" name="username" onChange={handleInputChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+              <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" onChange={handleInputChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" name="password" onChange={handleInputChange} class="form-control" id="exampleInputPassword1"/>
+            </div>
+                <button type="submit" onClick={handleFormSubmit} class="btn btn-primary">Submit</button>
+        </form>
+
+     
   )
 }

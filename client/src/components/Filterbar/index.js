@@ -9,26 +9,32 @@ class Filterbar extends React.Component {
 
     render(){  
     return(
-        <div>
+        <ul class="list-group">
+            <li class="list-group-item">
              <label for="cleaning">
                 <Checkbox
                 checked={this.state.checked}
                 onChange={this.handleCheckboxChange}/>
-                <span>Cleaning</span>
-            </label><br></br>
-            <label for="pet">
+                Cleaning
+            </label>
+            </li>
+            <li class="list-group-item">
+             <label for="bathroom">
                 <Checkbox
                 checked={this.state.checked}
                 onChange={this.handleCheckboxChange}/>
-               <span>Pet</span>
+                Bathroom
             </label>
-            <label for="dishware">
+            </li>
+            <li class="list-group-item">
+             <label for="kitchen">
                 <Checkbox
                 checked={this.state.checked}
                 onChange={this.handleCheckboxChange}/>
-               <span>Dishware</span>
+               Kitchen
             </label>
-        </div>
+            </li>
+        </ul>
     )}
 }
 
