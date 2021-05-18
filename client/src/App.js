@@ -6,8 +6,7 @@ import Home from './pages/Home';
 // import Post from './pages/Post';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
-import Login from "./components/Login";
-import Register from "./components/Register";
+
 import Header from "./components/Header";
 import './App.css';
 
@@ -27,20 +26,19 @@ function App() {
   }, []);
 
   return (
-    <div >
-     <Header setLoggedIn={setLoggedIn} />
+    <div>
+     <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
       <Router>
 
         { loggedIn === false ? (
-          <Register setLoggedIn={setLoggedIn} />
+          <Landing setLoggedIn={setLoggedIn} />
         ) : (
 
             <Switch>
               
               <Wrapper>
-                <Route exact path="/swap" component={Landing} />
-                <Route exact path="/" component={Landing} />
-                <Route exact path="/home" component={Home} />
+                <Route exact path="/swap" component={Home} />
+                <Route exact path="/" component={Home} />
                 {/* <Route exact path="/post" component={Post} /> */}
               </Wrapper>
               
