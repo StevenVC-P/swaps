@@ -6,7 +6,7 @@ import API from "../../utils/API";
 
 
 
-export default function Login( { setLoggedIn } ) {
+export default function Register( { setLoggedIn } ) {
 
 
     const [formObject, setFormObject] = useState({})
@@ -52,11 +52,11 @@ export default function Login( { setLoggedIn } ) {
             </div>
             <div className="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" name="password" onChange={handleInputChange} class="form-control" id="exampleInputPassword1"/>
+              <input type="password" name="password" onChange={handleInputChange} className="form-control" id="exampleInputPassword1"/>
             </div>
                 <button type="submit" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>
         </form>
-
-     
   )
+
 }
+

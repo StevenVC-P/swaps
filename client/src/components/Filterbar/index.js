@@ -14,16 +14,16 @@ class Filterbar extends React.Component {
             <Checkbox
                 checked={this.state.checked}
                 onChange={this.handleCheckboxChange}/>
-             <label for="cleaning">
+             <label html="cleaning">
                 
                   Cleaning
             </label>
             </li>
-            <li class="list-group-item">
+            <li className="list-group-item">
             <Checkbox
                 checked={this.state.checked}
                 onChange={this.handleCheckboxChange}/>
-             <label for="bathroom">
+             <label html="bathroom">
                 
                 Bathroom
             </label>
@@ -32,7 +32,7 @@ class Filterbar extends React.Component {
             <Checkbox
                 checked={this.state.checked}
                 onChange={this.handleCheckboxChange}/>
-             <label for="kitchen">
+             <label html="kitchen">
                 
                Kitchen
             </label>

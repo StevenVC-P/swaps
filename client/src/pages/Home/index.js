@@ -14,7 +14,7 @@ function Home () {
         return(
             <div className="container-fluid">
             <div className ="row">
-                <div class = "col-sm">
+                <div className = "col-sm">
                 <h3>Products</h3>
                 <Filterbar />
                 
@@ -24,6 +24,7 @@ function Home () {
                 <h2>Search Results</h2>
                     {productState.map(userPost => (
                         <MainFeed
+                        key={userPost.id}
                         id={userPost.id}
                         name={userPost.name}
                         type={userPost.type}
