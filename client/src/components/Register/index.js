@@ -6,7 +6,7 @@ import API from "../../utils/API";
 
 
 
-export default function Login( { setLoggedIn } ) {
+export default function Register( { setLoggedIn } ) {
 
 
     const [formObject, setFormObject] = useState({})
@@ -56,7 +56,7 @@ export default function Login( { setLoggedIn } ) {
             </div>
                 <button type="submit" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>
         </form>
-
-     
   )
+
 }
+
