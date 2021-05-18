@@ -56,14 +56,14 @@ const CommentBox = () => {
                 </div>
             </div>   */}
 
-            <label htmlFor="comment">What are your thoughts</label>
+            <label htmlFor="comment"></label>
             <textarea
                 ref={textRef}
                 onClick={onExpand}
                 onFocus={onExpand}
                 onChange={onChange}
                 className="comment-field"
-                placeholder="What are your thoughts?"
+                placeholder="Add comment"
                 value={commentValue}
                 name="comment"
                 id="comment"
@@ -71,11 +71,11 @@ const CommentBox = () => {
 
             <div className="actions">
                 <button type="button" className="cancel" onClick={onClose}>
-                    Cancel
+                    Submit
                 </button>
-                <button type="submit" disabled={commentValue.length < 1}>
+                {/* <button type="submit" disabled={commentValue.length < 1}>
                     Respond
-                </button>
+                </button> */}
             </div>
         </form>
     );
