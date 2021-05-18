@@ -66,7 +66,7 @@ const CommentBox = () => {
                 placeholder="Add comment"
                 value={commentValue}
                 name="comment"
-                id="comment"
+                
             />
 
             <div className="actions">

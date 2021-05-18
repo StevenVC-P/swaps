@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "./utils/API";
@@ -6,7 +5,6 @@ import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Post from './pages/Submitpost';
 import Footer from './components/Footer';
-import Login from "./components/Login/Login";
 import Header from "./components/Header";
 import './App.css';
 import Product from './pages/Product';
@@ -29,19 +27,19 @@ function App() {
   }, []);
 
   return (
-    <div >
-     <Header />
+    <div>
+     <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
       <Router>
 
         { loggedIn === false ? (
-          <Login setLoggedIn={setLoggedIn} />
+          <Landing setLoggedIn={setLoggedIn} />
         ) : (
 
             <Switch>
               
              
-                <Route exact path="/swap" component={Landing} />
-                <Route exact path="/" component={Landing} />
+                <Route exact path="/swap" component={Home} />
+                <Route exact path="/" component={Home} />
                 <Route exact path="/signup" component={SignUp}  />
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/post" component={Post} />

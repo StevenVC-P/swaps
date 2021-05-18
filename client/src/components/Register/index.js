@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Register.css';
+
 import API from "../../utils/API";
 
 
@@ -41,18 +41,18 @@ export default function Register( { setLoggedIn } ) {
       
         <form>
             <div className="form-group">
-              <label for="exampleInputEmail1">Name</label>
-              <input type="email" name="username" onChange={handleInputChange} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+              <label htmlFor="exampleInputEmail1">Name</label>
+              <input type="email" name="username" onChange={handleInputChange} className="form-control" aria-describedby="emailHelp"/>
               <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" name="email" onChange={handleInputChange} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                <label htmlFor="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" onChange={handleInputChange} className="form-control"  aria-describedby="emailHelp"/>
                 <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" name="password" onChange={handleInputChange} className="form-control" id="exampleInputPassword1"/>
+              <label htmlFor="exampleInputPassword1">Password</label>
+              <input type="password" name="password" onChange={handleInputChange} className="form-control" />
             </div>
                 <button type="submit" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>
         </form>
