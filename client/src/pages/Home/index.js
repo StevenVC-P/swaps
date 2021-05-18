@@ -12,12 +12,15 @@ function Home () {
     }, []);
 
         return(
-            <div class="container-fluid">
-            <div class ="row">
+            <div className="container-fluid">
+            <div className ="row">
                 <div class = "col-sm">
+                <h3>Products</h3>
                 <Filterbar />
+                
                 </div>
-                <div class = "col-sm">
+
+                <div className = "col-sm">
                 <h2>Search Results</h2>
                     {productState.map(userPost => (
                         <MainFeed
@@ -29,10 +32,11 @@ function Home () {
                         />
                     ))}
                     </div>
-                    <div class = "col-sm">
-                
+
+                    <div className = "col-sm">
                     <h3>My Favorites</h3>
                 <Favbar />
+            
                 </div>
 
 

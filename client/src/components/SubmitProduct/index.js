@@ -4,13 +4,13 @@ import React from "react";
 function SubmitProduct(props) {
   return (
     <form>
-    <div class="form-group">
+    <div className="form-group">
       <label for="exampleFormControlInput1">Add Product</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="product name"/>
+      <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="product name"/>
     </div>
-    <div class="form-group">
+    <div className="form-group">
       <label for="exampleFormControlSelect1">Category</label>
-      <select class="form-control" id="exampleFormControlSelect1">
+      <select className="form-control" id="exampleFormControlSelect1">
         <option>Kitchen</option>
         <option>Bathroom</option>
         <option>Laundry</option>
@@ -18,15 +18,15 @@ function SubmitProduct(props) {
         <option>Cleaning Products</option>
       </select>
     </div>
-    <div class="form-group">
+    <div className="form-group">
         <label for="exampleFormControlInput1">Link</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="copy and paste item link here"/>
+        <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="copy and paste item link here"/>
       </div>
-    <div class="form-group">
+    <div className="form-group">
       <label for="exampleFormControlTextarea1">Review</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
-    <button type="button" class="btn btn-primary">Submit</button>
+    <button type="button" className="btn btn-primary">Submit</button>
   </form>
 
 

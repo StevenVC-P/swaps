@@ -1,5 +1,5 @@
 body {
-    /* background-image: url("background.jpeg"); */
+    background-image: url("background.jpeg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -9,7 +9,43 @@ body {
 form {
     
     margin-top: -5%;
-    margin-right: 5%;
+    margin-right: 10%;
     padding-bottom: 5%;
+    }
+
+    main {
+        margin-top: 1%;
+        width: 60%;
+        margin-left: 25%;
+        font-family: 'Raleway', sans-serif;
+        padding-bottom: 30%;
+    }
+
+    #swap {
+        color: #738678;
+        text-align: right;
+        margin-top: -10%;
+        margin-right: 14%;
+        font-size: 108px;
+    }
+    
+    #swap:hover {
+        
+        color: #867381;
+    }
+
+    .btn.btn-outline-success {
+        border: .5px solid black;
+        color: black;
+        margin-top: 5%;
+        margin-left: 45%;
+        width: 190px;
+        height: 60px;
+    }
+    
+    .btn.btn-outline-success:hover {
+        background-color: #737886;
+        color: white;
+        border: 1px solid #737886;
     }
     

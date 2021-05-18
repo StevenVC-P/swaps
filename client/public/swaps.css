@@ -10,26 +10,16 @@ header {
 }
 
 #dropdownMenuButton {
-    
+    color: black;
     padding: 6px 12px;
     width: 190px;
     height: 60px;
+    margin-left: 5%;
 }
 
 #dropdownMenuButton:hover {
     background-color: #738678;
     color: white;   
-}
-
-
-
-
-main {
-    margin-top: 1%;
-    width: 50%;
-    margin-left: 40%;
-    font-family: 'Raleway', sans-serif;
-    padding-bottom: 50%;
 }
 
 footer {
@@ -41,18 +31,7 @@ footer {
     padding: .5%;
     font-family: 'Raleway', sans-serif;
 }
-#swap {
-    color: #738678;
-    text-align: right;
-    margin-top: -10%;
-    margin-right: 14%;
-    font-size: 108px;
-}
 
-#swap:hover {
-    
-    color: #867381;
-}
 
 .btn.btn-primary {
     background-color: transparent;
@@ -71,18 +50,7 @@ footer {
     border: 1px solid #867381;
 }
 
-.btn.btn-outline-success {
-    border: .5px solid black;
-    color: black;
-    margin-top: 5%;
-    margin-left: 45%;
-}
 
-.btn.btn-outline-success:hover {
-    background-color: #737886;
-    color: white;
-    border: 1px solid #737886;
-}
 
 .container-fluid {
     margin-top: 10%;
@@ -114,4 +82,74 @@ form {
     margin-top: 5%;
     margin-bottom: 10%;
     font-family: 'Raleway', sans-serif;
+}
+
+.col-sm {
+   
+
+}
+.comment-box.collapsed {
+    margin-left: 1%;
+}
+.comment-box.expanded {
+    margin-left: 1%;
+    color: #867381;
+}
+
+textarea {
+    width: 125%;
+    height: 150%;
+    
+}
+
+h2, h3 {
+    
+    padding: 5% 5% 5% 5%;
+    background-color: #738678;
+    color: white;
+    border: .5px solid black;
+    border-radius: 5px 5px 5px 5px;
+    
+}
+
+.item {
+    text-decoration: none;
+    background-color: #867381;
+    color: white;
+    border: .5px solid black;
+    border-radius: 5px 5px 5px 5px;
+    padding: 2%;
+}
+
+.item:hover {
+    text-decoration: none;
+    background-color: transparent;
+    color: #867381;
+}
+
+p {
+    padding: 2%;
+    font-size: 24px;
+    
+}
+
+button.cancel {
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #737886;
+    color: white;
+    padding: 2%;
+}
+
+button.cancel:hover {
+    background-color: transparent;
+    color: #737886;
+}
+
+label {
+    padding-left: 5%;
+}
+
+li {
+    padding-left: 3%;
 }
