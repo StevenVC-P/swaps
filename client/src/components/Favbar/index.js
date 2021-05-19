@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
+// import FavContext from "../../utils/FavContext";
+import FavSelector from "../FavSelector";
+import products from "../../products.json";
 
 function Favbar (props) {
+  const [favState, setFavState] = useState([])
+
+  useEffect(() => {
+    setFavState(products)
+  }, [])
+
     return(
-        <ul className="list-group list-group-flush">
-        <li className="list-group-item">An item</li>
-        <li className="list-group-item">A second item</li>
-        <li className="list-group-item">A third item</li>
-        <li className="list-group-item">A fourth item</li>
-        <li className="list-group-item">And a fifth one</li>
-      </ul>
+      <div>
+        {favState.map(favPost => (
+          <FavSelector
+          key={favPost.id}
+          id={favPost.id}
+          name={favPost.name}
+          type={favPost.type}
+          review={favPost.review}
+          url={favPost.url}
+          />
+        ))}
+      </div>
     )
 }
 
