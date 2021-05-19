@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import MainFeed from "../../components/MainFeed";
 import Filterbar from "../../components/Filterbar";
-import Favbar from "../../components/Favbar";
-import products from "../../products.json";
+// import Favbar from "../../components/Favbar";
+import API from "../../utils/API";
 
 function Home () {
     const [productState, setProductState] = useState([])
 
     useEffect(()=>{
-        setProductState(products)
+        API.getProducts()
+        .then(res => {
+            console.log(res)
+            setProductState(res.data)
+        })
     }, []);
 
         return(
@@ -36,7 +40,7 @@ function Home () {
 
                     <div className = "col-sm">
                     <h3>My Favorites</h3>
-                <Favbar />
+                {/* <Favbar /> */}
             
                 </div>
 

@@ -34,24 +34,5 @@ export default {
     saveProduct: function(productData) {
         return axios.post("/api/product", productData);
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
