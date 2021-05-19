@@ -1,5 +1,5 @@
 import React from "react";
-import Comment from "../Comment"
+
 
 function MainFeed (props) {
   return (
@@ -14,7 +14,7 @@ function MainFeed (props) {
         <p>{props.review}</p>
         <small>3 days ago</small>
         </div>
-      <Comment />
+      
       
     </div>
   );
