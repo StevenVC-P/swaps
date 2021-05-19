@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-
 import API from "../../utils/API";
 
-
-
-
-
 export default function Register( { setLoggedIn } ) {
-
-
     const [formObject, setFormObject] = useState({})
 
     function handleInputChange(event) {
