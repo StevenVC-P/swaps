@@ -1,13 +1,14 @@
 import React from "react";
 import Login from "../Login";
+import "./style.css"
 
 function Navbar({setLoggedIn}) {
   return (
     <>
-    <nav className="nav justify-content-end">
+       <nav className="nav justify-content-end">
               
-        <Login setLoggedIn={setLoggedIn}/>   
-    </nav>
+              <Login setLoggedIn={setLoggedIn}/>   
+          </nav>
     </>
   );
 }

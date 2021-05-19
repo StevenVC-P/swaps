@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-
 import API from "../../utils/API";
-
-
-
+import "./style.css";
 
 
 export default function Register( { setLoggedIn } ) {
