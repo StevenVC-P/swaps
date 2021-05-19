@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MainFeed from "../../components/MainFeed";
 import Filterbar from "../../components/Filterbar";
+import { Link } from "react-router-dom";
 // import Favbar from "../../components/Favbar";
 import API from "../../utils/API";
 
@@ -27,6 +28,7 @@ function Home () {
                 <div className = "col-sm">
                 <h2>Search Results</h2>
                     {productState.map(userPost => (
+                        <Link to={`/product/${userPost._id}`}>
                         <MainFeed
                         key={userPost._id}
                         productName={userPost.productName}
@@ -34,6 +36,7 @@ function Home () {
                         review={userPost.review}
                         url={userPost.url}
                         />
+                        </Link>
                     ))}
                     </div>
 
