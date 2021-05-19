@@ -15,7 +15,7 @@ function MainFeed (props) {
         </div>
       </a>
       <div>
-        <p>{props.review}</p>
+        <p className="review">{props.review}</p>
         <small>3 days ago</small>
       </div>
     </div>

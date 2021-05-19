@@ -3,6 +3,7 @@ import MainFeed from "../../components/MainFeed";
 import Filterbar from "../../components/Filterbar";
 // import Favbar from "../../components/Favbar";
 import API from "../../utils/API";
+import "./style.css"
 
 function Home () {
     const [productState, setProductState] = useState([])
@@ -25,6 +26,7 @@ function Home () {
                 </div>
 
                 <div className = "col-sm">
+                <div className = "search">
                 <h2>Search Results</h2>
                     {productState.map(userPost => (
                         <MainFeed
@@ -37,7 +39,7 @@ function Home () {
                         />
                     ))}
                     </div>
-
+                    </div>
                     <div className = "col-sm">
                     <h3>My Favorites</h3>
                 {/* <Favbar /> */}
