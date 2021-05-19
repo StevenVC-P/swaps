@@ -28,10 +28,9 @@ function Home () {
                 <h2>Search Results</h2>
                     {productState.map(userPost => (
                         <MainFeed
-                        key={userPost.id}
-                        id={userPost.id}
-                        name={userPost.name}
-                        type={userPost.type}
+                        key={userPost._id}
+                        productName={userPost.productName}
+                        category={userPost.category}
                         review={userPost.review}
                         url={userPost.url}
                         />
