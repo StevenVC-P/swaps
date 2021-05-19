@@ -31,29 +31,18 @@ function App() {
      <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
       <Router>
 
-
-
       <Switch>
         <Route exact path="/signup" component={SignUp}  />
-
+        <Route exact path="/home" component={Home} />
         { loggedIn === false ? (
           <Landing setLoggedIn={setLoggedIn} />
-
         ) : (
-
-           
               <>
-             
                 <Route exact path="/swap" component={Home} />
                 <Route exact path="/" component={Home} />
-                <Route exact path="/home" component={Home} />
                 <Route exact path="/product" component={Product}/>
                 <Route exact path="/submitpost" component={Submitpost} />
-
-                </>
-
               </>
-
         )}
         </Switch>
       </Router>
