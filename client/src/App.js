@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import API from "./utils/API";
 import Landing from './pages/Landing';
 import Home from './pages/Home';
@@ -28,11 +28,10 @@ function App() {
 
   return (
     <div>
-     
       <Router>
       <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
       <Switch>
-      <Route exact path="/signup" component={SignUp}  />
+      <Route exact path="/signup" setLoggedIn={setLoggedIn} component={SignUp}  />
       <Route exact path="/home" component={Home} />
         { loggedIn === false ? (
           <Landing setLoggedIn={setLoggedIn} />
@@ -41,7 +40,7 @@ function App() {
                 <Route exact path="/swap" component={Home} />
                 <Route exact path="/" component={Home} />
                 <Route exact path="/post" component={Post} />
-                <Route exact path="/product" component={Product}/>
+                <Route exact path="/product/:productId" component={Product}/>
                 <Route exact path="/submitpost" component={Submitpost} />
               </>
         )}
@@ -49,7 +48,6 @@ function App() {
       </Router>
       <Footer />
     </div>
-
   );
 };
 

@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import API from "../../utils/API";
 import "./style.css";
 
-
 export default function Register( { setLoggedIn } ) {
-
-
     const [formObject, setFormObject] = useState({})
 
     function handleInputChange(event) {

@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "../Navbar";
 import API from "../../utils/API";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
+
 
 
 function Header({setLoggedIn, loggedIn}) {
