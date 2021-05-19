@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "../Navbar";
 import API from "../../utils/API";
+import { Link, BrowserRouter as Router} from "react-router-dom";
+
 
 function Header({setLoggedIn, loggedIn}) {
 
@@ -22,26 +24,33 @@ function Header({setLoggedIn, loggedIn}) {
 };
 
   return (
-    <>
+    
     <header>    
-        <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <Router>
+        <Link to="/home"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Explore
         </button>
-
+      </Link>
+      
     { loggedIn === false ? (
       
         <Navbar setLoggedIn={setLoggedIn}/>
       
     ) : (
       <>
-      <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign Out</button>
-      <button type="submit" className="btn btn-primary">Add Product</button>
-     
+      <Link to="/landing"> <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign Out</button>
+        
+        </Link>
+      
+      
+      <Link to="/submitpost"> <button type="submit" className="btn btn-primary">Add Product</button>
+        
+      </Link>
       </>
     )}
-
+ </Router>
   </header>
-    </>
+ 
   )
 
 }
