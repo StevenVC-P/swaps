@@ -4,6 +4,7 @@ import Filterbar from "../../components/Filterbar";
 import { Link } from "react-router-dom";
 // import Favbar from "../../components/Favbar";
 import API from "../../utils/API";
+import "./style.css"
 
 function Home () {
     const [productState, setProductState] = useState([])
@@ -26,6 +27,7 @@ function Home () {
                 </div>
 
                 <div className = "col-sm">
+                <div className = "search">
                 <h2>Search Results</h2>
                     {productState.map(userPost => (
                         <Link to={`/product/${userPost._id}`}>
@@ -39,7 +41,7 @@ function Home () {
                         </Link>
                     ))}
                     </div>
-
+                    </div>
                     <div className = "col-sm">
                     <h3>My Favorites</h3>
                 {/* <Favbar /> */}

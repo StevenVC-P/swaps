@@ -1,0 +1,37 @@
+header {
+    margin-left: 5%;
+    font-family: 'Raleway', sans-serif;
+    
+    
+}
+
+#dropdownMenuButton {
+    color: black;
+    padding: 6px 12px;
+    width: 190px;
+    height: 60px;
+    margin-left: 5%;
+    margin-bottom: 0;
+    margin-top: 3%;
+    
+}
+
+#dropdownMenuButton:hover {
+    background-color: #738678;
+    color: white;   
+}
+
+b {
+    font-size: 128px;
+    color:#738678;
+    
+    padding-left: 8%;
+    
+
+}
+
+b:hover {
+    font-size: 138px;
+    font-style: italic;
+    color:#867381;
+}

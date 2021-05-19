@@ -17,9 +17,9 @@ export default function Filterbar(){
     return(
         <ul className="list-group">
             <li className="list-group-item">
-            <Checkbox name="Cleaning"
+            <Checkbox name="Kitchen"
                 onChange={handleCheckboxChange}/>
-             <label htmlFor="cleaning"> Cleaning </label>
+             <label htmlFor="kitchen"> Kitchen</label>
             </li>
             <li className="list-group-item">
             <Checkbox name="Bathroom"
@@ -27,19 +27,19 @@ export default function Filterbar(){
              <label htmlFor="bathroom"> Bathroom </label>
             </li>
             <li className="list-group-item">
-            <Checkbox name="Kitchen"
+            <Checkbox name="Laundry"
                 onChange={handleCheckboxChange}/>
-             <label htmlFor="kitchen"> Kitchen </label>
+             <label htmlFor="Laundry"> Laundry</label>
             </li>
             <li className="list-group-item">
-            <Checkbox name="Pet"
+            <Checkbox name="Personal"
                 onChange={handleCheckboxChange}/>
-             <label htmlFor="Pet"> Pet </label>
+             <label htmlFor="personal"> Personal </label>
             </li>
             <li className="list-group-item">
-            <Checkbox name="Storage"
+            <Checkbox name="Cleaning Products"
                 onChange={handleCheckboxChange}/>
-             <label htmlFor="Storage"> Storage </label>
+             <label htmlFor="Cleaning Products"> Cleaning Products </label>
             </li>
         </ul>
     )
