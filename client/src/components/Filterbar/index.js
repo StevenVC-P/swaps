@@ -1,44 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Checkbox from "../Checkbox";
 
-class Filterbar extends React.Component {
+export default function Filterbar(){
 
-    state = { checked: false }
-    handleCheckboxChange = event =>
-      this.setState({ checked: event.target.checked })
+    const [filterObject, setFilterObject] = useState({})
 
-    render(){  
+    function handleCheckboxChange(event) {
+        const { name, value }  = event.target;
+        setFilterObject({...filterObject, [name]: value})
+    };
+
+    function filterMainFeed(event) {
+        event.preventDefault();
+    }
+
     return(
         <ul className="list-group">
             <li className="list-group-item">
-            <Checkbox
-                checked={this.state.checked}
-                onChange={this.handleCheckboxChange}/>
-             <label htmlFor="cleaning">
-                
-                  Cleaning
-            </label>
+            <Checkbox name="Cleaning"
+                onChange={handleCheckboxChange}/>
+             <label htmlFor="cleaning"> Cleaning </label>
             </li>
             <li className="list-group-item">
-            <Checkbox
-                checked={this.state.checked}
-                onChange={this.handleCheckboxChange}/>
-             <label htmlFor="bathroom">
-                
-                Bathroom
-            </label>
+            <Checkbox name="Bathroom"
+                onChange={handleCheckboxChange}/>
+             <label htmlFor="bathroom"> Bathroom </label>
             </li>
             <li className="list-group-item">
-            <Checkbox
-                checked={this.state.checked}
-                onChange={this.handleCheckboxChange}/>
-             <label htmlFor="kitchen">
-                
-               Kitchen
-            </label>
+            <Checkbox name="Kitchen"
+                onChange={handleCheckboxChange}/>
+             <label htmlFor="kitchen"> Kitchen </label>
+            </li>
+            <li className="list-group-item">
+            <Checkbox name="Pet"
+                onChange={handleCheckboxChange}/>
+             <label htmlFor="Pet"> Pet </label>
+            </li>
+            <li className="list-group-item">
+            <Checkbox name="Storage"
+                onChange={handleCheckboxChange}/>
+             <label htmlFor="Storage"> Storage </label>
             </li>
         </ul>
-    )}
+    )
 }
-
-export default Filterbar;
