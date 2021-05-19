@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar";
 import API from "../../utils/API";
-import { Link, BrowserRouter as Router} from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 function Header({setLoggedIn, loggedIn}) {
@@ -26,11 +26,11 @@ function Header({setLoggedIn, loggedIn}) {
   return (
     
     <header>    
-        <Router>
+       
         <Link to="/home"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Explore
         </button>
-      </Link>
+        </Link>
       
     { loggedIn === false ? (
       
@@ -38,17 +38,17 @@ function Header({setLoggedIn, loggedIn}) {
       
     ) : (
       <>
-      <Link to="/landing"> <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign Out</button>
-        
-        </Link>
-      
-      
-      <Link to="/submitpost"> <button type="submit" className="btn btn-primary">Add Product</button>
-        
+      <Link to="/submitpost"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Add Product
+        </button>
+      </Link>
+      <Link to="/landing"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sign Up
+        </button>
       </Link>
       </>
     )}
- </Router>
+ 
   </header>
  
   )

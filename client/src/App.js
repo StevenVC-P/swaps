@@ -28,29 +28,24 @@ function App() {
 
   return (
     <div>
-     <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
+     
       <Router>
-
+      <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
+      <Switch>
+      <Route exact path="/signup" component={SignUp}  />
+      <Route exact path="/home" component={Home} />
         { loggedIn === false ? (
           <Landing setLoggedIn={setLoggedIn} />
         ) : (
-
-            <Switch>
-              
-             
+              <>
                 <Route exact path="/swap" component={Home} />
                 <Route exact path="/" component={Home} />
-                <Route exact path="/signup" component={SignUp}  />
-                <Route exact path="/home" component={Home} />
                 <Route exact path="/post" component={Post} />
                 <Route exact path="/product" component={Product}/>
                 <Route exact path="/submitpost" component={Submitpost} />
-               
-              
-            </Switch>
-          
+              </>
         )}
-        
+        </Switch>
       </Router>
       <Footer />
     </div>
