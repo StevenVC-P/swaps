@@ -42,7 +42,7 @@ function Header({setLoggedIn, loggedIn}) {
         Add Product
         </button>
       </Link>
-      <Link to="/landing"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <Link to="/signup"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Sign Up
         </button>
       </Link>
