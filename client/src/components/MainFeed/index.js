@@ -1,7 +1,4 @@
-
 import React, { useState } from "react";
-
-
 
 function MainFeed (props) {
 //   const [fav, setFav] = useState({
@@ -20,10 +17,7 @@ function MainFeed (props) {
       <div>
         <p>{props.review}</p>
         <small>3 days ago</small>
-
       </div>
-    
-
     </div>
   );
 }
