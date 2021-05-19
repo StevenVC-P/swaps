@@ -11,7 +11,7 @@ function MainFeed (props) {
 
       <a href={props.url} target = "_blank" rel="noopener noreferrer" className="item">
         <div className="d-flex w-100 justify-content-between">
-          <h5 className="mb-1">{props.type} {props.name}</h5>
+          <h5 className="mb-1">{props.category} {props.productName}</h5>
         </div>
       </a>
       <div>

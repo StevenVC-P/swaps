@@ -7,10 +7,12 @@ const [formObject, setFormObject] = useState({})
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
+
     };
 
     function handleFormSubmit(event) {
       event.preventDefault();
+      console.log(formObject)
       if (formObject.productName) {
       API.saveProduct({
           productName: formObject.productName,
@@ -40,17 +42,18 @@ const [formObject, setFormObject] = useState({})
     </div>
     <div className="form-group">
       <label htmlFor="exampleFormControlSelect1">Category</label>
-      <select className="form-control" name="category" onChange={handleInputChange} id="exampleFormControlSelect1">
-        <option>Kitchen</option>
-        <option>Bathroom</option>
-        <option>Laundry</option>
-        <option>Personal</option>
-        <option>Cleaning Products</option>
+      <select className="form-control" name="category" defaultValue="Select Category" onChange={handleInputChange} id="exampleFormControlSelect1">
+        <option value="Select">Select Category</option>
+        <option value="Kitchen">Kitchen</option>
+        <option value="Bathroom">Bathroom</option>
+        <option value="Laundry">Laundry</option>
+        <option value="Personal">Personal</option>
+        <option value="Cleaning Products">Cleaning Products</option>
       </select>
     </div>
     <div className="form-group">
         <label htmlFor="exampleFormControlInput1">Link</label>
-        <input type="text" className="form-control" name="url" onChange={handleInputChange} id="exampleFormControlInput1" placeholder="copy and paste item link here"/>
+        <input type="text" className="form-control" name="url" onChange={handleInputChange} id="exampleFormControlInput1" defaultValue="https://" placeholder="copy and paste item link here"/>
       </div>
     <div className="form-group">
       <label htmlFor="exampleFormControlTextarea1">Review</label>
