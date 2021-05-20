@@ -2,7 +2,7 @@ import React, {useState, useRef } from "react";
 import cn from "classnames";
 import { useParams } from "react-router-dom";
 import "./styles.css";
-import API from "../../utils/API";
+
 
 const INITIAL_HEIGHT = 46;
 
@@ -37,15 +37,15 @@ const CommentBox = (props) => {
         e.preventDefault();
         console.log(commentValue)
         if(commentValue){
-            props.submitcomment(commentValue)
+            props.submitcommenta(commentValue)
             setCommentValue({});
-            setIsExpanded(false);
+            
         }
     };
 
     return(
         <form
-            onSubmit={onSubmit}
+            // onSubmit={onSubmit}
             ref={containerRef}
             className={cn("comment-box", {
                 expanded: isExpanded,
@@ -74,7 +74,7 @@ const CommentBox = (props) => {
                 onChange={onChange}
                 className="comment-field"
                 placeholder="Add comment"
-                // value={commentValue}
+                value={commentValue.comment}
                 name="comment"
                 
             />
@@ -83,7 +83,7 @@ const CommentBox = (props) => {
                 <button type="button" className="cancel" onClick={onClose}>
                     Cancel
                 </button>
-                <button type="submit" className="cancel" disabled={commentValue.length < 1}>
+                <button type="submit" className="cancel" onClick={onSubmit} disabled={commentValue.length < 1}>
                     Submit
                 </button>
             </div>
