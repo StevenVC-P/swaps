@@ -21,37 +21,37 @@ function Home () {
 
         return(
            <div className="container-fluid">
-
-            <div className ="row">
-                <div className = "col-sm">
-                <h3>Products</h3>
-                <Filterbar />
-                
-                </div>
-
-                <div className = "col-sm">
-                <div className = "search">
-                <h2>Search Results</h2>
-                    {productState.map(userPost => (
-                        <Link to={`/product/${userPost._id}`}>
-                        <MainFeed
-                        key={userPost._id}
-                        productName={userPost.productName}
-                        category={userPost.category}
-                        review={userPost.review}
-                        url={userPost.url}
-                        />
-                        </Link>
-                    ))}
+                <div className ="row">
+                    <div className = "col-sm">
+                        <h3>Products</h3>
+                        <Filterbar />
+                    
                     </div>
+
+                    <div className = "col-sm">
+                        <div className = "search">
+                            <h2>Search Results</h2>
+                                {productState.map(userPost => (
+                                    <Link to={`/product/${userPost._id}`}>
+                                    <MainFeed
+                                    key={userPost._id}
+                                    productName={userPost.productName}
+                                    category={userPost.category}
+                                    review={userPost.review}
+                                    url={userPost.url}
+                                    />
+                                    </Link>
+                                ))}
+                        </div>
                     </div>
                     <div className = "col-sm">
-                    <h3>My Favorites</h3>
-                {/* <Favbar /> */}
-            
+                        <h3>My Favorites</h3>
+                        {/* <Favbar /> */}
+                
+                    </div>
+
+
                 </div>
-
-
             </div>
             </div>
             
