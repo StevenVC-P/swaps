@@ -35,16 +35,17 @@ export default function Login({setLoggedIn}) {
     };
 
   return(
-  
-    <form className="px-4 py-3">
-        <div className="form-group">
+  <>
+   
+    <form className="px-4 py-3 input-group">
+        
             <input type="email" className="form-control" name="email" onChange={handleInputChange} placeholder="Email"/>
-        </div>
-        <div className="form-group">
+            <span className="input-group-addon">-</span>
             <input type="password" className="form-control" name="password" onChange={handleInputChange} placeholder="Password"/>
-        </div>
-        <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign in</button>
+            <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign in</button>
     </form>
-  
+
+
+  </>
   )
 }

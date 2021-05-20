@@ -44,10 +44,10 @@ function Header({setLoggedIn, loggedIn}) {
         Add Product
         </button>
       </Link>
-      <Link to="/signup"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sign Up
+      <button onClick={handleFormSubmit} className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sign Out
         </button>
-      </Link>
+      
 
       <b>Swap</b>
       </>
