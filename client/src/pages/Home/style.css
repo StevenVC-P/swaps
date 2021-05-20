@@ -1,5 +1,6 @@
-.container-fluid {
-    background-color: whitesmoke;
+.col-sm {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 5%;
 }
 h2, h3 {
     
@@ -10,6 +11,11 @@ h2, h3 {
     border-radius: 5px 5px 5px 5px;
     
 }
+a:hover{
+    text-decoration: none!important;
+}
+
+
 
 
 .item {
@@ -22,9 +28,11 @@ h2, h3 {
 }
 
 .item:hover {
-    text-decoration: none;
-    background-color: transparent;
-    color: #867381;
+    text-decoration: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    background-color: #3D2436;
+    color: whitesmoke;
 }
 
 .review {
@@ -37,9 +45,11 @@ h2, h3 {
 }
 
 
-.review:hover {
+.review:hover, review:visited, review:link, review:active {
     text-decoration: none!important;
     color: black;
+    border:0!important;
+   
 }
 
 label {
@@ -87,6 +97,10 @@ small {
 .checkbox > input:checked {
     border: 1px solid #738678;
     background-color: #867381;
+    
+}
+.checkbox>input:checked + label {
+    content: √;
 }
 
 .checkbox > input:checked + span::before {

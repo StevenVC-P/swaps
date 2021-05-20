@@ -38,8 +38,8 @@ function App() {
           <Route exact path="/" component={Landing} />
         ) : (
               <>
-                <Route exact path="/swap" component={Home} />
                 <Route exact path="/" component={Home} />
+                <Route exact path="/swaps" component={Home} />
                 <Route exact path="/post" component={Post} />
                 <Route exact path="/product/:productId" component={Product}/>
                 <Route exact path="/submitpost" component={Submitpost} />

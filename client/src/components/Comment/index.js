@@ -92,7 +92,7 @@ const CommentBox = () => {
                 <button type="button" className="cancel" onClick={onClose}>
                     Cancel
                 </button>
-                <button type="submit" disabled={commentValue.length < 1}>
+                <button type="submit" className="cancel" disabled={commentValue.length < 1}>
                     Submit
                 </button>
             </div>

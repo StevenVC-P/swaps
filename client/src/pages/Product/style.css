@@ -8,7 +8,7 @@
 }
 
 .comment-box.collapsed {
-    color: #867381;
+ color: #867381;
     margin-left: 31%;
     width: 30%;
     margin-top: 1%;   
@@ -26,6 +26,9 @@ textarea {
     height: 150%;
     
 }
+.actions {
+    margin-left: 50%;
+}
 
 button.cancel {
     border: 1px solid black;
@@ -33,10 +36,13 @@ button.cancel {
     background-color: #737886;
     color: white;
     padding: 2%;
+    
 }
 
 button.cancel:hover {
     background-color: transparent;
     color: #737886;
+    cursor: pointer;
 }
+
 
