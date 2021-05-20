@@ -31,7 +31,7 @@ function App() {
         <Router>
         <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
         <Switch>
-        <Route exact path="/signup" setLoggedIn={setLoggedIn} component={SignUp}  />
+        <Route exact path="/signup" render={(props) => <SignUp {...props} setLoggedIn={setLoggedIn} />} />
         <Route exact path="/home" component={Home} />
           { loggedIn === false ? (
             <Landing setLoggedIn={setLoggedIn} />
