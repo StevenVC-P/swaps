@@ -20,7 +20,7 @@ function Home () {
     }, []);
 
         return(
-           <div className="container-fluid">
+           
                 <div className ="row">
                     <div className = "col-sm">
                         <h3>Products</h3>
@@ -52,8 +52,8 @@ function Home () {
 
 
                 </div>
-            </div>
-            </div>
+            
+            
             
         )
 }

@@ -1,20 +1,26 @@
-form {
-    
-    margin-left: 40%;
-    
-    
-    font-family: 'Raleway', sans-serif;
+.signIn {
+    margin-right: 5%;
+    margin-top: -3%;
 }
+
+
 
 .form-control {
     height: 60px;
     width: 190px;
-    
+    background-color: white;
     text-align: center;
 }
 
+.form-control:hover {
+    border: 1px solid #738678;
+    box-shadow: 0 0 1px 3px #867381;
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+    font-style: italic;
+}
+
 .form-control:focus {
-    background-color: whitesmoke;
+    background-color: white;
     border-color: #aaa;
     border-radius: 5px 5px 5px 5px;
 	box-shadow: 0 0 1px 3px #738678;

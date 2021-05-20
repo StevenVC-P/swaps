@@ -33,20 +33,21 @@ export default function Register( { setLoggedIn } ) {
 
   return(
       
-        <form>
+        <form className = "signUp">
+            <p className="psignUp">Sign Up</p>
             <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Name</label>
-              <input type="email" name="username" onChange={handleInputChange} className="form-control" aria-describedby="emailHelp"/>
+              
+              <input type="email" name="username" placeholder="Name"onChange={handleInputChange} className="control" aria-describedby="emailHelp"/>
               <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" name="email" onChange={handleInputChange} className="form-control"  aria-describedby="emailHelp"/>
+                
+                <input type="email" name="email" placeholder="Email Adress"onChange={handleInputChange} className="control"  aria-describedby="emailHelp"/>
                 <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Password</label>
-              <input type="password" name="password" onChange={handleInputChange} className="form-control" />
+              
+              <input type="password" name="password" placeholder="Password" onChange={handleInputChange} className="control" />
             </div>
                 <button type="submit" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>
         </form>

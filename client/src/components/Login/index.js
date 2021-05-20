@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 import API from "../../utils/API";
+import "./style.css"
 
 export default function Login({setLoggedIn}) {
 
@@ -36,17 +37,19 @@ export default function Login({setLoggedIn}) {
 
   return(
 
-  
+    <div className="signIn">
     <form className="px-4 py-3 input-group">
+            
             <input type="email" className="form-control" name="email" onChange={handleInputChange} placeholder="Email"/>
             <span className="input-group-addon"></span>
-
+           
 
             <input type="password" className="form-control" name="password" onChange={handleInputChange} placeholder="Password"/>
             <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign in</button>
+            
     </form>
+    </div>
 
 
-  </>
   )
 }

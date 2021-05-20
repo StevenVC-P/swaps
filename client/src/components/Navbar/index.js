@@ -1,6 +1,6 @@
 import React from "react";
 import Login from "../Login";
-import "./style.css"
+
 
 function Navbar({setLoggedIn}) {
   return (
