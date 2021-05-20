@@ -28,15 +28,18 @@ function ProductCard(props) {
         <>
           <div className="card text-center">
             <div className="card-header">
-              Category
+            <h5 className="card-title">{data.productName}</h5>
             </div>
             <div className="card-body">
-              <h5 className="card-title">{data.productName}</h5>
-              <p className="card-text">{data.review}</p>
-              <a href={data.url} className="btn btn-primary">Purchase</a>
-              <a href="#" className="btn btn-primary">Favorite</a>
+              
+              <p className="card-text">"{data.review}"</p>
+              
             </div>
-            <div className="card-footer text-muted"></div>
+            <div className="card-footer text-muted">
+            <a href={data.url} className="btn btn-primary">Purchase</a>
+            <a href="#" className="btn btn-primary">Favorite ♡</a>
+            </div>
+            
           </div>
           <div>
             {data.comments.map(comment => (

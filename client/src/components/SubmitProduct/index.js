@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import API from "../../utils/API.js"
+import "./style.css"
 
 function SubmitProduct(props) {
 const [formObject, setFormObject] = useState({})
@@ -38,11 +39,11 @@ const [formObject, setFormObject] = useState({})
     <form>
     <div className="form-group">
       <label htmlFor="exampleFormControlInput1">Add Product</label>
-      <input type="text" className="form-control" name="productName" onChange={handleInputChange} id="exampleFormControlInput1" placeholder="product name"/>
+      <input type="text" className="form-control" name="productName" onChange={handleInputChange} id="exampleFormControlInput1" placeholder="Product Name"/>
     </div>
     <div className="form-group">
       <label htmlFor="exampleFormControlSelect1">Category</label>
-      <select className="form-control" name="category" defaultValue="Select Category" onChange={handleInputChange} id="exampleFormControlSelect1">
+      <select className="select-css" name="category" defaultValue="Select Category" onChange={handleInputChange} id="exampleFormControlSelect1">
         <option value="Select">Select Category</option>
         <option value="Kitchen">Kitchen</option>
         <option value="Bathroom">Bathroom</option>

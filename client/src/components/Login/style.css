@@ -1,0 +1,39 @@
+form {
+    
+    margin-left: 40%;
+    margin-top: 5%;
+    padding-bottom: 5%;
+    font-family: 'Raleway', sans-serif;
+}
+
+.form-control {
+    height: 75px;
+    width: 75%;
+    font-size: 25px;
+}
+
+.form-control:focus {
+    background-color: whitesmoke;
+    border-color: #aaa;
+	box-shadow: 0 0 1px 3px #738678;
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+
+.btn.btn-primary {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    margin-left: 1%;
+    height: 60px;
+    width: 190px;
+    
+    
+}
+
+.btn.btn-primary:hover {
+    background-color: #867381;
+    color: white;
+    border: 1px solid #867381;
+}
