@@ -12,7 +12,7 @@ function ProductCard(props) {
   useEffect(() => {
     API.getproduct(productId)
     .then(res => {
-      console.log("product dara:", res.data.comments)
+      console.log("product data:", res.data)
       setData(res.data)
       setReadyRender(true)
     })
@@ -43,7 +43,9 @@ function ProductCard(props) {
           </div>
           <div>
             {data.comments.map(comment => (
-              <p key={comment._id}>{comment.comment}</p>
+              <>
+                <p key={comment._id}>{comment.comment}</p>
+              </>
             ))}
           </div>
           <Comment />
