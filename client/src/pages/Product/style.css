@@ -45,4 +45,17 @@ button.cancel:hover {
     cursor: pointer;
 }
 
+.script {
+    background-color: #EDF0EE;
+    color: #48544B;
+    margin-left: 30%;
+    border: .5px solid #48544B;
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    padding: 5%;
+    width: 40%;
+    margin-top: 3%;
+    border-radius: 5px 5px 5px 5px;
+}
 
