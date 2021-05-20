@@ -38,6 +38,13 @@ function ProductCard(props) {
             </div>
             <div className="card-footer text-muted"></div>
           </div>
+          <div>
+            {data.comments.map(comment => (
+              <>
+              <p key={comment._id}>{comment}</p>
+              </>
+            ))}
+          </div>
           <Comment />
         </>
       )}

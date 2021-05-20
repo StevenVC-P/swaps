@@ -33,6 +33,14 @@ export default {
     // Saves a product to the database
     saveProduct: function(productData) {
         return axios.post("/api/product", productData);
+    },
+
+    addComment: function(commentData) {
+        return axios.post("/api/product/comment", commentData);
+    },
+
+    getProductComments: function(data) {
+        return axios.get("/api/product/comment", data);
     }
 
 }
