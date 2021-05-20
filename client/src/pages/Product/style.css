@@ -1,0 +1,42 @@
+.card {
+  
+    margin-top: 5%;
+    margin-left: 30%;
+    width: 40%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+}
+
+.comment-box.collapsed {
+    color: #867381;
+    margin-left: 31%;
+    width: 30%;
+    margin-top: 1%;   
+}
+.comment-box.expanded {
+    
+    color: #867381;
+    margin-left: 31%;
+    width: 30%;
+    margin-top: 1%;
+}
+
+textarea {
+    width: 125%;
+    height: 150%;
+    
+}
+
+button.cancel {
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #737886;
+    color: white;
+    padding: 2%;
+}
+
+button.cancel:hover {
+    background-color: transparent;
+    color: #737886;
+}
+
