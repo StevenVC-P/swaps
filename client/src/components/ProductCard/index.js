@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import Comment from "../Comment"
 import API from "../../utils/API";
+import "./style.css"
 
 function ProductCard(props) {
   // const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +37,7 @@ function ProductCard(props) {
               
             </div>
             <div className="card-footer text-muted">
-            <a href={data.url} className="btn btn-primary">Purchase</a>
+            <a href={data.url} target = "_blank" rel="noopener noreferrer"className="btn btn-primary">Purchase</a>
             <a href="#" className="btn btn-primary">Favorite ♡</a>
             </div>
             
@@ -46,7 +47,9 @@ function ProductCard(props) {
               <p key={comment._id}>{comment.comment}</p>
             ))}
           </div>
+          
           <Comment />
+          
         </>
       )}
   </>
