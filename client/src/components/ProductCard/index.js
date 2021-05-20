@@ -44,9 +44,9 @@ function ProductCard(props) {
           </div>
           <div>
             {data.comments.map(comment => (
-              <>
-                <p key={comment._id}>{comment.comment}</p>
-              </>
+              <div>
+                <p className= "script" key={comment._id}>"{comment.comment}"</p>
+              </div>
             ))}
           </div>
           
