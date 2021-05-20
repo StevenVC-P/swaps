@@ -6,7 +6,7 @@ import API from "../../utils/API";
 
 const INITIAL_HEIGHT = 46;
 
-const CommentBox = () => {
+const CommentBox = (props) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [commentValue, setCommentValue] = useState("");
     const {productId} = useParams()
@@ -37,18 +37,7 @@ const CommentBox = () => {
         e.preventDefault();
         console.log(commentValue)
         if(commentValue){
-            API.addComment(commentValue)
-            .then(res => {
-                setCommentValue({});
-                setIsExpanded(false);
-                console.log('Comment Res', res)
-                if(res.status === 200){
-                    console.log("SUCCESS! Comment Added")
-                } else {
-                    console.log("FAIL", res.status)
-                }
-            })
-            .catch(err => console.log("ERROR ADDING COMMENT", err))
+            props.submitcomment(commentValue)
         }
     };
 

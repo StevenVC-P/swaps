@@ -10,6 +10,24 @@ function ProductCard(props) {
   const [data, setData] = useState();
   const {productId} = useParams()
   
+
+
+  const submitcomment = (data) => {
+    API.addComment(data)
+    .then(res => {
+        console.log('Comment Res', res)
+        if(res.status === 200){
+            console.log("SUCCESS! Comment Added")
+        } else {
+            console.log("FAIL", res.status)
+        }
+    })
+    .catch(err => console.log("ERROR ADDING COMMENT", err))
+
+  }
+
+
+
   useEffect(() => {
     API.getproduct(productId)
     .then(res => {
@@ -18,8 +36,9 @@ function ProductCard(props) {
       setReadyRender(true)
     })
     .catch(err => console.log(err));
-  }, [])
+  }, [submitcomment])
   
+ 
 
   return (
     <>
@@ -50,7 +69,7 @@ function ProductCard(props) {
             ))}
           </div>
           
-          <Comment />
+          <Comment submitcomment={submitcomment} />
           
         </>
       )}
