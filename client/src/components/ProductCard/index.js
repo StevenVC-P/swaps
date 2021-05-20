@@ -4,7 +4,7 @@ import Comment from "../Comment"
 import API from "../../utils/API";
 
 function ProductCard(props) {
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [readyRender, setReadyRender] = useState(false);
   const [data, setData] = useState();
   const {productId} = useParams()
@@ -12,7 +12,7 @@ function ProductCard(props) {
   useEffect(() => {
     API.getproduct(productId)
     .then(res => {
-      console.log(res.data)
+      console.log("product dara:", res.data.comments)
       setData(res.data)
       setReadyRender(true)
     })
@@ -40,9 +40,7 @@ function ProductCard(props) {
           </div>
           <div>
             {data.comments.map(comment => (
-              <>
-              <p key={comment._id}>{comment}</p>
-              </>
+              <p key={comment._id}>{comment.comment}</p>
             ))}
           </div>
           <Comment />

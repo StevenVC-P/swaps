@@ -12,7 +12,7 @@ module.exports = {
     findById: function(req, res) {
         ProductModel
             .findById(req.params.id)
-            .populate("comments").exec()
+            .populate("comments")
             .then(productData => res.json(productData))
             .catch(err => res.status(422).json(err))
     },
