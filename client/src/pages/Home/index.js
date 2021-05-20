@@ -10,6 +10,8 @@ function Home () {
     const [productState, setProductState] = useState([])
 
     useEffect(()=>{
+
+
         API.getProducts()
         .then(res => {
             console.log(res)
@@ -18,6 +20,14 @@ function Home () {
     }, []);
 
         return(
+                // <>
+                // { loggedIn === true ? (
+                //     <Dashboard />
+                // ) : (
+                //     <LandingPage />
+                // )}
+
+
             <div className="container-fluid">
             <div className ="row">
                 <div className = "col-sm">

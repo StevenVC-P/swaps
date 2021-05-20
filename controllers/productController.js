@@ -1,6 +1,5 @@
 const { ProductModel, CommentModel } = require('../models');
 
-
 module.exports = {
 
     findAll: function(req, res) {
@@ -36,10 +35,10 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addComment: function(req, res) {
-        console.log(req.body)
+        console.log("Controller", req.body)
         CommentModel
             .create(req.body)
-            .then(({ _id}) => ProductModel.findOneAndUpdate({}, {$push: {comments: _id} }, {new :true}))
+            .then(({ _id}) => ProductModel.findOneAndUpdate({_id: req.body.product}, {$push: {comments: _id} }, {new :true}))
             .then(commentData => res.json(commentData))
             .catch(err => res.json(err))
     }, 
