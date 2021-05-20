@@ -14,4 +14,8 @@ router.route('/:id')
     .put(productController.update)
     .delete(productController.remove);
 
+router.route('/comment')
+    .post(productController.addComment)
+    .get(productController.findAllWithComments)
+
 module.exports = router;

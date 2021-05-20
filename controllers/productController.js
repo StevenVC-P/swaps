@@ -1,4 +1,4 @@
-const { ProductModel } = require('../models');
+const { ProductModel, CommentModel } = require('../models');
 
 
 module.exports = {
@@ -12,6 +12,7 @@ module.exports = {
     findById: function(req, res) {
         ProductModel
             .findById(req.params.id)
+            .populate("comments")
             .then(productData => res.json(productData))
             .catch(err => res.status(422).json(err))
     },
@@ -33,7 +34,22 @@ module.exports = {
             .then(productData => productData.remove())
             .then(productData => res.json(productData))
             .catch(err => res.status(422).json(err));
-    }
+    },
+    addComment: function(req, res) {
+        console.log(req.body)
+        CommentModel
+            .create(req.body)
+            .then(({ _id}) => ProductModel.findOneAndUpdate({}, {$push: {comments: _id} }, {new :true}))
+            .then(commentData => res.json(commentData))
+            .catch(err => res.json(err))
+    }, 
+    findAllWithComments: function(req, res) {
+        ProductModel
+            .find(req.query)
+            .populate("comments")
+            .then(productData => res.json(productData))
+            .catch(err => res.status(422).json(err));
+    },
 
 
 

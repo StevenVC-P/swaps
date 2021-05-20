@@ -1,6 +1,7 @@
 import React, {useState, useRef } from "react";
 import cn from "classnames";
 import "./styles.css";
+import API from "../../utils/API";
 
 const INITIAL_HEIGHT = 46;
 
@@ -19,9 +20,11 @@ const CommentBox = () => {
         }
     }
 
-    const onChange = (e) => {
-        setCommentValue(e.target.value);
-    }
+
+    function onChange(event) {
+        const { name, value } = event.target;
+        setCommentValue({...commentValue, [name]: value})
+    };
 
     const onClose = () => {
         setCommentValue("");
@@ -30,8 +33,20 @@ const CommentBox = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log('send the form data somewhere')
-    }
+        console.log(commentValue)
+        if(commentValue){
+            API.addComment(commentValue)
+            .then(res => {
+                console.log('Comment Res', res)
+                if(res.status === 200){
+                    console.log("SUCCESS! Comment Added")
+                } else {
+                    console.log("FAIL", res.status)
+                }
+            })
+            .catch(err => console.log("ERROR ADDING COMMENT", err))
+        }
+    };
 
     return(
         <form
@@ -64,18 +79,18 @@ const CommentBox = () => {
                 onChange={onChange}
                 className="comment-field"
                 placeholder="Add comment"
-                value={commentValue}
+                // value={commentValue}
                 name="comment"
                 
             />
 
             <div className="actions">
                 <button type="button" className="cancel" onClick={onClose}>
+                    Cancel
+                </button>
+                <button type="submit" disabled={commentValue.length < 1}>
                     Submit
                 </button>
-                {/* <button type="submit" disabled={commentValue.length < 1}>
-                    Respond
-                </button> */}
             </div>
         </form>
     );
