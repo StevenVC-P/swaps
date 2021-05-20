@@ -38,6 +38,8 @@ const CommentBox = (props) => {
         console.log(commentValue)
         if(commentValue){
             props.submitcomment(commentValue)
+            setCommentValue({});
+            setIsExpanded(false);
         }
     };
 
