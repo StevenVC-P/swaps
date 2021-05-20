@@ -46,7 +46,5 @@ export default function Login({setLoggedIn}) {
             <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign in</button>
     </form>
 
-
-  </>
   )
 }

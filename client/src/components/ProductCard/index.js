@@ -9,7 +9,7 @@ function ProductCard(props) {
   const [readyRender, setReadyRender] = useState(false);
   const [data, setData] = useState();
   const {productId} = useParams()
-  
+  const [count, setCount] = useState(0);
 
 
   const submitcomment = (data) => {
@@ -21,11 +21,10 @@ function ProductCard(props) {
         } else {
             console.log("FAIL", res.status)
         }
+        setCount(+1)
     })
     .catch(err => console.log("ERROR ADDING COMMENT", err))
-
   }
-
 
 
   useEffect(() => {
@@ -36,7 +35,7 @@ function ProductCard(props) {
       setReadyRender(true)
     })
     .catch(err => console.log(err));
-  }, [submitcomment])
+  }, [count])
   
  
 
@@ -69,7 +68,7 @@ function ProductCard(props) {
             ))}
           </div>
           
-          <Comment submitcomment={submitcomment} />
+          <Comment submitcommenta={submitcomment} />
           
         </>
       )}
