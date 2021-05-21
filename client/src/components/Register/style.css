@@ -2,13 +2,14 @@
     margin-left: 50%;
     border: .5px solid #738678;
     border-radius: 5px 5px 5px 5px;
-    padding-top: 4%;
-    padding-bottom: -4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     padding-left: 8%;
     padding-right: -6%;
     font-family: 'Raleway', sans-serif;
     width: 40%;
     align-items: center;
+    margin-top: 2%;
 }
 .signUp:hover {
     background-color: #B3A8B0;

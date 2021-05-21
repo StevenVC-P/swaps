@@ -1,12 +1,12 @@
 import React, {useState, useRef } from "react";
 import cn from "classnames";
 import { useParams } from "react-router-dom";
-import "./styles.css";
-import API from "../../utils/API";
+
+
 
 const INITIAL_HEIGHT = 46;
 
-const CommentBox = () => {
+const CommentBox = (props) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [commentValue, setCommentValue] = useState("");
     const {productId} = useParams()
@@ -37,24 +37,15 @@ const CommentBox = () => {
         e.preventDefault();
         console.log(commentValue)
         if(commentValue){
-            API.addComment(commentValue)
-            .then(res => {
-                setCommentValue({});
-                setIsExpanded(false);
-                console.log('Comment Res', res)
-                if(res.status === 200){
-                    console.log("SUCCESS! Comment Added")
-                } else {
-                    console.log("FAIL", res.status)
-                }
-            })
-            .catch(err => console.log("ERROR ADDING COMMENT", err))
+            props.submitcommenta(commentValue)
+            setCommentValue({});
+            
         }
     };
 
     return(
         <form
-            onSubmit={onSubmit}
+            // onSubmit={onSubmit}
             ref={containerRef}
             className={cn("comment-box", {
                 expanded: isExpanded,
@@ -83,18 +74,19 @@ const CommentBox = () => {
                 onChange={onChange}
                 className="comment-field"
                 placeholder="Add comment"
-                // value={commentValue}
+                value={commentValue.comment}
                 name="comment"
                 
             />
 
             <div className="actions">
+                 <button type="submit" className="submit" onClick={onSubmit} disabled={commentValue.length < 1}>
+                    Submit
+                </button>
                 <button type="button" className="cancel" onClick={onClose}>
                     Cancel
                 </button>
-                <button type="submit" className="cancel" disabled={commentValue.length < 1}>
-                    Submit
-                </button>
+               
             </div>
         </form>
     );

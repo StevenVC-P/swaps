@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import API from "../../utils/API";
 import "./style.css";
 
 export default function Register( { setLoggedIn } ) {
     const [formObject, setFormObject] = useState({})
+    const history = useHistory();
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -23,9 +26,11 @@ export default function Register( { setLoggedIn } ) {
                 if(res.status === 200){
                     setLoggedIn(true)
                     console.log("Success! Logged in!")
+                    history.push('/home')
                 } else {
                     console.log(res.status)
                 }
+                
             })
             .catch(err => console.log("REGISTRATION ERROR", err));
         }
@@ -49,7 +54,10 @@ export default function Register( { setLoggedIn } ) {
               
               <input type="password" name="password" placeholder="Password" onChange={handleInputChange} className="control" />
             </div>
-                <button type="submit" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>
+                
+                    <button type="submit" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>
+                
+                
         </form>
   )
 

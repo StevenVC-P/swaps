@@ -1,33 +1,57 @@
+
 .card {
   
     margin-top: 5%;
-    margin-left: 30%;
+    margin-left: 45%;
     width: 40%;
     font-family: 'Raleway', sans-serif;
     font-size: 24px;
 }
 
+.favorite, .purchase {
+    margin-right: 20%;
+    margin-top: 2%;
+}
+textarea:hover {
+    border-color: #aaa;
+	box-shadow: 0 0 1px 3px #738678;
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+    border-radius: 5px 5px 5px 5px;
+}
+
 .comment-box.collapsed {
  color: #867381;
-    margin-left: 31%;
+    margin-left: 46%;
     width: 30%;
-    margin-top: 1%;   
+    margin-top: 1%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;   
 }
+
 .comment-box.expanded {
     
     color: #867381;
-    margin-left: 31%;
+    margin-left: 46%;
     width: 30%;
     margin-top: 1%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px; 
+     
 }
+
+
 
 textarea {
     width: 125%;
     height: 150%;
+    padding: 3%
     
 }
 .actions {
-    margin-left: 50%;
+    margin-left: 42%;
+    
 }
 
 button.cancel {
@@ -35,7 +59,7 @@ button.cancel {
     border-radius: 5px 5px 5px 5px;
     background-color: #737886;
     color: white;
-    padding: 2%;
+    padding: 4%;
     
 }
 
@@ -45,15 +69,31 @@ button.cancel:hover {
     cursor: pointer;
 }
 
+button.submit {
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #737886;
+    color: white;
+    padding: 4%;
+    margin-right: 4%;
+    
+}
+
+button.submit:hover {
+    background-color: transparent;
+    color: #737886;
+    cursor: pointer;
+}
+
 .script {
     background-color: #EDF0EE;
     color: #48544B;
-    margin-left: 30%;
+    margin-left: 45%;
     border: .5px solid #48544B;
     font-family: 'Raleway', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-style: italic;
-    padding: 5%;
+    padding: 1%;
     width: 40%;
     margin-top: 3%;
     border-radius: 5px 5px 5px 5px;

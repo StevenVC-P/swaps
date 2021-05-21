@@ -1,9 +1,9 @@
 import React from "react";
 import Register from "../../components/Register";
 
-function SignUp () {
+function SignUp ({setLoggedIn}) {
     return (
-        <Register />
+        <Register setLoggedIn={setLoggedIn}/>
     )
 }
 
