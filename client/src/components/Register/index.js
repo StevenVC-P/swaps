@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import API from "../../utils/API";
 import "./style.css";
 
@@ -41,23 +40,17 @@ export default function Register( { setLoggedIn } ) {
         <form className = "signUp">
             <p className="psignUp">Sign Up</p>
             <div className="form-group">
-              
-              <input type="email" name="username" placeholder="Name"onChange={handleInputChange} className="control" aria-describedby="emailHelp"/>
-              <small id="emailHelp" className="form-text text-muted"></small>
+                <input type="email" name="username" placeholder="Name"onChange={handleInputChange} className="control" aria-describedby="emailHelp"/>
+                <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-                
                 <input type="email" name="email" placeholder="Email Adress"onChange={handleInputChange} className="control"  aria-describedby="emailHelp"/>
                 <small id="emailHelp" className="form-text text-muted"></small>
             </div>
             <div className="form-group">
-              
-              <input type="password" name="password" placeholder="Password" onChange={handleInputChange} className="control" />
+                <input type="password" name="password" placeholder="Password" onChange={handleInputChange} className="control" />
             </div>
-                
-                    <button type="submit" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>
-                
-                
+                <button type="submit" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>      
         </form>
   )
 

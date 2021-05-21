@@ -5,8 +5,6 @@ import "./style.css"
 
 export default function Login({setLoggedIn}) {
 
-
-
     const [formObject, setFormObject] = useState({})
 
     function handleInputChange(event) {
@@ -41,11 +39,9 @@ export default function Login({setLoggedIn}) {
     <form className="px-4 py-3 input-group">
     
             <input type="email" className="trol" name="email" onChange={handleInputChange} placeholder="Email"/>
-            
             <input type="password" className="trol" name="password" onChange={handleInputChange} placeholder="Password"/>
             <span className="input-group-addon"></span>
-            <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign in</button>
-              
+            <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Sign in</button>         
     </form>
     </div>
 

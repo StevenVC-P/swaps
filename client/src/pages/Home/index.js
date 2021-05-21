@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import MainFeed from "../../components/MainFeed";
 import Filterbar from "../../components/Filterbar";
 import { Link } from "react-router-dom";
-// import Favbar from "../../components/Favbar";
 import API from "../../utils/API";
 import "./style.css"
 
@@ -52,7 +51,7 @@ function Home () {
                         {/* <Favbar /> */}
                     </div>
                 </div>
-            </div>
+           
 
         )
 }

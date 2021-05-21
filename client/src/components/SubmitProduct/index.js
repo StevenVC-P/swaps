@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import API from "../../utils/API.js"
 import "./style.css"
 
 function SubmitProduct(props) {
 const [formObject, setFormObject] = useState({})
+const history = useHistory();
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -24,7 +26,7 @@ const [formObject, setFormObject] = useState({})
           .then(res => {
               console.log('Product Res', res)
               if(res.status === 200){
-                  // setProductState(true)
+                history.push('/home')
                   console.log("Success! Product submitted!")
               } else {
                   console.log(res.status)
@@ -62,7 +64,6 @@ const [formObject, setFormObject] = useState({})
     </div>
     <button type="button" onClick={handleFormSubmit} className="btn btn-primary">Submit</button>
   </form>
-
 
 
   );

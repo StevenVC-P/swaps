@@ -7,17 +7,6 @@ export const Checkbox = props => {
         </li>
     )
 }
-//checked={props.isChecked} 
-// export default CheckBox
-
-//         </li>
-//         <label className= "checkbox">
-//         <input type="checkbox" {...props} />
-//         </label>
-
-//     )
-
-//     )
 
 
 export default Checkbox;
