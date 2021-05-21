@@ -5,7 +5,7 @@ import API from "../../utils/API";
 
 
 function ProductCard(props) {
-  // const [isLoading, setIsLoading] = useState(true);
+ 
   const [readyRender, setReadyRender] = useState(false);
   const [data, setData] = useState();
   const {productId} = useParams()

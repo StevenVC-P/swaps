@@ -45,7 +45,7 @@ const CommentBox = (props) => {
 
     return(
         <form
-            // onSubmit={onSubmit}
+            
             ref={containerRef}
             className={cn("comment-box", {
                 expanded: isExpanded,
@@ -56,16 +56,7 @@ const CommentBox = (props) => {
                 minHeight: isExpanded ? outerHeight.current : INITIAL_HEIGHT
             }}
         >
-            {/* <div className="header">
-                <div className="user">
-                    <img
-                    src="avatar/path"
-                    alt="User avatar"
-                    />
-                    <span>User Name</span>
-                </div>
-            </div>   */}
-
+            
             <label htmlFor="comment"></label>
             <textarea
                 ref={textRef}

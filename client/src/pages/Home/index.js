@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import MainFeed from "../../components/MainFeed";
 import Filterbar from "../../components/Filterbar";
 import { Link } from "react-router-dom";
-// import Favbar from "../../components/Favbar";
 import API from "../../utils/API";
 import "./style.css"
 
@@ -21,7 +20,6 @@ function Home () {
     }, [count]);
 
         return(
-           
                 <div className ="row">
                     <div className = "col-sm">
                         <h3>Products</h3>
@@ -52,8 +50,6 @@ function Home () {
                         {/* <Favbar /> */}
                     </div>
                 </div>
-            
-
         )
 }
 
