@@ -1,20 +1,28 @@
-form {
-    
-    margin-left: 40%;
-    
-    
-    font-family: 'Raleway', sans-serif;
+.signIn {
+    margin-right: 10%;
+    margin-top: -3%;
 }
 
-.form-control {
-    height: 60px;
+
+
+.trol {
     width: 190px;
-    
+    height: 60px;
+    margin-right: 4%;
+    background-color: white;
     text-align: center;
+    border-radius: 5px 5px 5px 5px;
 }
 
-.form-control:focus {
-    background-color: whitesmoke;
+.trol:hover {
+    border: 1px solid #738678;
+    box-shadow: 0 0 1px 3px #867381;
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+    font-style: italic;
+}
+
+.trol:focus {
+    background-color: white;
     border-color: #aaa;
     border-radius: 5px 5px 5px 5px;
 	box-shadow: 0 0 1px 3px #738678;
@@ -30,6 +38,8 @@ form {
     margin-left: 1%;
     height: 60px;
     width: 190px;
+    margin-right: -10%;
+    
     
     
 }

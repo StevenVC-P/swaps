@@ -36,7 +36,7 @@ const [formObject, setFormObject] = useState({})
 
 
   return (
-    <form>
+    <form className="submitProduct">
     <div className="form-group">
       <label htmlFor="exampleFormControlInput1">Add Product</label>
       <input type="text" className="form-control" name="productName" onChange={handleInputChange} id="exampleFormControlInput1" placeholder="Product Name"/>

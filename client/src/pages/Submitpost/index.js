@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SubmitProduct from "../../components/SubmitProduct";
-import "./style.css";
 function Submitpost () {
     const [productState, setProductState] = useState([])
 
