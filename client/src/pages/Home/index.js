@@ -52,7 +52,7 @@ function Home () {
                         {/* <Favbar /> */}
                     </div>
                 </div>
-            </div>
+            
 
         )
 }
