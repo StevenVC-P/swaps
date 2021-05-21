@@ -1,7 +1,7 @@
 import React, {useState, useRef } from "react";
 import cn from "classnames";
 import { useParams } from "react-router-dom";
-import "./styles.css";
+
 
 
 const INITIAL_HEIGHT = 46;
@@ -80,12 +80,13 @@ const CommentBox = (props) => {
             />
 
             <div className="actions">
+                 <button type="submit" className="submit" onClick={onSubmit} disabled={commentValue.length < 1}>
+                    Submit
+                </button>
                 <button type="button" className="cancel" onClick={onClose}>
                     Cancel
                 </button>
-                <button type="submit" className="cancel" onClick={onSubmit} disabled={commentValue.length < 1}>
-                    Submit
-                </button>
+               
             </div>
         </form>
     );
