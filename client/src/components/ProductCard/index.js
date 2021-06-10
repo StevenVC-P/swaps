@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import Comment from "../Comment"
 import API from "../../utils/API";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function ProductCard(props) {
  
@@ -35,9 +35,9 @@ function ProductCard(props) {
       setReadyRender(true)
     })
     .catch(err => console.log(err));
-  }, [count])
-  
- 
+  }, 
+  [count]
+  )
 
   return (
     <>
@@ -59,7 +59,11 @@ function ProductCard(props) {
             <a href={data.url} target = "_blank" rel="noopener noreferrer"className="btn btn-primary">Purchase</a>
             </div>
             <div className="favorite">
-            <a href="#" className="btn btn-primary">Favorite ♡</a>
+            <button className="btn btn-primary">Favorite
+              <div>
+              <FontAwesomeIcon icon="heart"/>
+              </div>
+            </button>
             </div>
             </div>
             
