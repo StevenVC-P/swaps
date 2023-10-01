@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import API from "../../utils/API";
 import "./style.css";
 
 export default function Register( { setLoggedIn } ) {
     const [formObject, setFormObject] = useState({})
-    const history = useHistory();
+    const history = useNavigate();
 
     function handleInputChange(event) {
         const { name, value } = event.target;
