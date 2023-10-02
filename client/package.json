@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
+  "homepage": "http://swaps.azurewebsites.net",
   "dependencies": {
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
