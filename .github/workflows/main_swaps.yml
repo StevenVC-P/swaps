@@ -60,11 +60,11 @@ jobs:
       - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: build-artifact
+          name: client-artifact
 
       # Unzip the build artifact
       - name: Unzip the build artifact
-        run: unzip build.zip -d ./unzipped-build
+        run: unzip client.zip -d ./unzipped-client
 
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
@@ -74,4 +74,4 @@ jobs:
           app-name: 'Swaps'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6793DE84C4C54BF291358D26ED28C933 }}
-          package: ./unzipped-build/client/build/
+          package: ./unzipped-client/client/
