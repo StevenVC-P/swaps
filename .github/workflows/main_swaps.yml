@@ -36,7 +36,7 @@ jobs:
         run: ls -al
           
       - name: Zip the client build folder
-        run: zip -r build.zip client/build/
+        run: zip -r build.zip swaps/client/build/
 
       - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
