@@ -60,10 +60,6 @@ jobs:
       - name: Check current user
         run: whoami
 
-      # Check permissions of .git directory
-      - name: Check .git directory permissions
-        run: ls -l .git
-
       - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
