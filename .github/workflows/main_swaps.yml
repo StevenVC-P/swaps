@@ -71,6 +71,11 @@ jobs:
       - name: Unzip the build artifact
         run: unzip build.zip -d ./unzipped-build
 
+        # List directory contents for debugging
+      - name: List directory contents of unzipped-client
+        run: |
+          ls -al ./unzipped-client/client/build
+
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
