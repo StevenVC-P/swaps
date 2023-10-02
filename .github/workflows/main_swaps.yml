@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy Node.js app to Azure Web App - Swaps
+name: Build and deploy Node.js app to Azure Web App - StevenVanCourt
 
 on:
   push:
@@ -16,10 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # Check current user
+      - name: Check current user
+        run: whoami
+
+      # Check permissions of .git directory
+      - name: Check .git directory permissions
+        run: ls -l .git
+
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: 16
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -34,15 +39,18 @@ jobs:
         run: |
           npm ci
           npm run build --if-present
-
-      - name: Zip project files
-        run: zip -r node-app.zip .
-
+      
+      # Zip the build folder
+      - name: Zip the build folder
+        run: |
+          zip -r build.zip build/
+      
+      # Upload the zipped artifact
       - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: node-app-zipped
-          path: node-app.zip
+          name: build-artifact
+          path: build.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,20 +60,29 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      # Check current user
+      - name: Check current user
+        run: whoami
+
+      # Check permissions of .git directory
+      - name: Check .git directory permissions
+        run: ls -l .git
+
       - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: node-app-zipped
-
-      # Unzip the files here after downloading
-      - name: Unzip project files
-        run: unzip node-app.zip
-
+          name: build-artifact
+      
+      # Unzip the build artifact
+      - name: Unzip the build artifact
+        run: unzip build.zip
+      
+      # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Swaps'
+          app-name: 'StevenVanCourt'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6793DE84C4C54BF291358D26ED28C933 }}
-          package: .
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4C71EDC52D5F47249A3994F57D7BBCB9 }}
+          package: ./build/
