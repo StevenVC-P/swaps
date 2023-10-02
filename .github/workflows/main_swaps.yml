@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Node.js version
         uses: actions/setup-node@v1
@@ -28,10 +28,19 @@ jobs:
           npm run test --if-present
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: node-app
           path: .
+
+      - name: Zip project files
+        run: zip -r node-app.zip .
+
+      - name: Upload zipped artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: node-app-zipped
+          path: node-app.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,6 +50,15 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      - name: Download zipped artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: node-app-zipped
+
+      # Unzip the files here after downloading
+      - name: Unzip project files
+        run: unzip node-app.zip
+    
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
