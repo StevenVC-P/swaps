@@ -25,23 +25,19 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-            
-      # Install and build the client
+
       - name: Install and build client
         run: |
           cd client
           npm ci
           npm run build
-          
-      # List directory contents for debugging
-      - name: List directory contents of client/build
-        run: ls -al client/build
 
-      # Zip the client build folder
+      - name: List directory contents for debugging
+        run: ls -al
+          
       - name: Zip the client build folder
         run: zip -r build.zip client/build/
-      
-      # Upload the zipped artifact
+
       - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
@@ -51,31 +47,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      # Download zipped artifact from build job
       - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: build-artifact
-          
-      # Unzip the build artifact
+
       - name: Unzip the build artifact
         run: unzip build.zip -d ./unzipped-build
 
-      # List directory contents for debugging
-      - name: List directory contents of unzipped-build/client/build
-        run: ls -al ./unzipped-build/client/build
+      - name: List directory contents of unzipped-build
+        run: ls -al ./unzipped-build
 
-      # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'Swaps'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6793DE84C4C54BF291358D26ED28C933 }}
-          package: ./unzipped-build/client/build
+          package: ./unzipped-build/client/build/
