@@ -37,16 +37,16 @@ jobs:
       - name: List directory contents
         run: ls -al
 
-      # Zip the client build folder
-      - name: Zip the client build folder
-        run: zip -r build.zip client/build/
-
+      # Zip the entire client folder
+      - name: Zip the entire client folder
+        run: zip -r client.zip client/
+      
       # Upload the zipped artifact
       - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: build-artifact
-          path: build.zip
+          name: client-artifact
+          path: client.zip
 
   deploy:
     runs-on: ubuntu-latest
