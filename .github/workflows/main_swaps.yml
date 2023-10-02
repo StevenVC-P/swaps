@@ -64,7 +64,11 @@ jobs:
 
       # Unzip the build artifact
       - name: Unzip the build artifact
-        run: unzip build.zip
+        run: unzip build.zip -d ./unzipped-build
+
+      # List directory contents for debugging
+      - name: List directory contents of unzipped-build
+        run: ls -al ./unzipped-build
 
       # List directory contents for debugging
       - name: List directory contents of unzipped-build
