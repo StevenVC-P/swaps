@@ -68,10 +68,6 @@ jobs:
 
       # List directory contents for debugging
       - name: List directory contents of unzipped-build
-        run: ls -al ./unzipped-build/client
-
-      # List directory contents for debugging
-      - name: List directory contents of unzipped-build
         run: ls -al ./unzipped-build/client/build
 
       # Deploy to Azure Web App
