@@ -25,7 +25,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
+      
       # Install and build the client
       - name: Install and build client
         run: |
@@ -56,22 +56,12 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      # Login to Azure
-      - name: 'Login via Azure CLI'
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          
-      # Check current user
-      - name: Check current user
-        run: whoami
-
       # Download zipped artifact from build job
       - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: build-artifact
-      
+
       # Unzip the build artifact
       - name: Unzip the build artifact
         run: unzip build.zip -d ./unzipped-build
