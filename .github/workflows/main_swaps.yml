@@ -13,14 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Check current user
-      - name: Check current user
-        run: whoami
-
-      # Check permissions of .git directory
-      - name: Check .git directory permissions
-        run: ls -l .git
-
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
@@ -33,18 +25,22 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      
-      # Use npm ci for faster, reliable builds
-      - name: npm install, build, and test
+
+      # Install and build the client
+      - name: Install and build client
         run: |
+          cd client
           npm ci
-          npm run build --if-present
-      
-      # Zip the build folder
-      - name: Zip the build folder
-        run: |
-          zip -r build.zip build/
-      
+          npm run build
+          
+      # List directory contents for debugging
+      - name: List directory contents
+        run: ls -al
+
+      # Zip the client build folder
+      - name: Zip the client build folder
+        run: zip -r build.zip client/build/
+
       # Upload the zipped artifact
       - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -75,8 +71,8 @@ jobs:
       
       # Unzip the build artifact
       - name: Unzip the build artifact
-        run: unzip build.zip
-      
+        run: unzip build.zip -d ./unzipped-build
+
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -85,4 +81,4 @@ jobs:
           app-name: 'StevenVanCourt'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4C71EDC52D5F47249A3994F57D7BBCB9 }}
-          package: ./build/
+          package: ./unzipped-build/client/build/
