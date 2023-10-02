@@ -34,6 +34,11 @@ jobs:
           npm run build
 
       # List directory contents for debugging
+      - name: List directory contents of client/build
+        run: |
+          ls -al client/build
+
+      # List directory contents for debugging
       - name: List directory contents
         run: ls -al
 
