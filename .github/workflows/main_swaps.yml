@@ -31,7 +31,7 @@ jobs:
         run: |
           cd client
           npm ci
-          npm run build
+          npm run build --if-present
 
       # List directory contents for debugging
       - name: List directory contents of client/build
@@ -64,7 +64,11 @@ jobs:
 
       # Unzip the build artifact
       - name: Unzip the build artifact
-        run: unzip build.zip -d ./unzipped-build
+        run: unzip build.zip
+
+      # List directory contents for debugging
+      - name: List directory contents of unzipped-build
+        run: ls -al ./unzipped-build
 
       # List directory contents for debugging
       - name: List directory contents of unzipped-build
@@ -77,4 +81,4 @@ jobs:
         with:
           app-name: 'Swaps'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6793DE84C4C54BF291358D26ED28C933 }}
-          package: ./unzipped-build/client/build
+          package: ./unzipped-build/client/build/
