@@ -25,7 +25,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
+      
       # Install and build the client
       - name: Install and build client
         run: |
@@ -34,24 +34,21 @@ jobs:
           npm run build
 
       # List directory contents for debugging
-      - name: List directory contents of client/build
+      - name: List directory contents of client and client/build
         run: |
+          ls -al client
           ls -al client/build
 
-      # List directory contents for debugging
-      - name: List directory contents
-        run: ls -al
-
-      # Zip the client build folder
-      - name: Zip the client build folder
-        run: zip -r build.zip client/build/
-
+      # Zip the entire client folder
+      - name: Zip the entire client folder
+        run: zip -r client.zip client/
+      
       # Upload the zipped artifact
       - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: build-artifact
-          path: build.zip
+          name: client-artifact
+          path: client.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -65,16 +62,15 @@ jobs:
       - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: build-artifact
+          name: client-artifact
 
       # Unzip the build artifact
       - name: Unzip the build artifact
-        run: unzip build.zip -d ./unzipped-build
+        run: unzip client.zip -d ./unzipped-client
 
-        # List directory contents for debugging
+      # List directory contents for debugging
       - name: List directory contents of unzipped-client
-        run: |
-          ls -al ./unzipped-client/client/build
+        run: ls -al ./unzipped-client
 
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
@@ -84,4 +80,4 @@ jobs:
           app-name: 'Swaps'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6793DE84C4C54BF291358D26ED28C933 }}
-          package: ./unzipped-build/
+          package: ./unzipped-client/client/build/
