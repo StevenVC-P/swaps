@@ -48,7 +48,7 @@ jobs:
           name: build-artifact
           path: build.zip
 
-  deploy:
+ deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
@@ -56,10 +56,17 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      # Login to Azure
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
       # Check current user
       - name: Check current user
         run: whoami
 
+      # Download zipped artifact from build job
       - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
