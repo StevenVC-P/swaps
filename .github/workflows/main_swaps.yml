@@ -67,8 +67,8 @@ jobs:
         run: unzip build.zip -d ./unzipped-build
 
       # List directory contents for debugging
-      - name: List directory contents of unzipped-build
-        run: ls -al ./unzipped-build
+      - name: List directory contents of unzipped-build/client/build
+        run: ls -al ./unzipped-build/client/build
 
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
@@ -78,4 +78,4 @@ jobs:
           app-name: 'Swaps'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6793DE84C4C54BF291358D26ED28C933 }}
-          package: ./unzipped-build/
+          package: ./unzipped-build/client/build
