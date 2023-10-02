@@ -26,17 +26,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install and build client
-        run: |
-          cd client
-          npm ci
-          npm run build
+      # - name: Install and build client
+      #   run: |
+      #     cd client
+      #     npm ci
+      #     npm run build
 
       - name: List directory contents for debugging
         run: ls -al
           
       - name: Zip the client build folder
-        run: zip -r build.zip swaps/client/build/
+        run: zip -r build.zip /client/build/
 
       - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
