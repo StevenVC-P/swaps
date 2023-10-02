@@ -25,28 +25,28 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      
+
       # Install and build the client
       - name: Install and build client
         run: |
           cd client
           npm ci
           npm run build
-          
+
       # List directory contents for debugging
       - name: List directory contents
         run: ls -al
 
-      # Zip the entire client folder
-      - name: Zip the entire client folder
-        run: zip -r client.zip client/
-      
+      # Zip the client build folder
+      - name: Zip the client build folder
+        run: zip -r build.zip client/build/
+
       # Upload the zipped artifact
       - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: client-artifact
-          path: client.zip
+          name: build-artifact
+          path: build.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -60,11 +60,11 @@ jobs:
       - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: client-artifact
+          name: build-artifact
 
       # Unzip the build artifact
       - name: Unzip the build artifact
-        run: unzip client.zip -d ./unzipped-client
+        run: unzip build.zip -d ./unzipped-build
 
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
@@ -74,4 +74,4 @@ jobs:
           app-name: 'Swaps'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6793DE84C4C54BF291358D26ED28C933 }}
-          package: ./unzipped-client/client/
+          package: ./unzipped-build/
