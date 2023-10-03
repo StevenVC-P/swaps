@@ -1,13 +1,12 @@
 import React from "react";
 import Navbar from "../Navbar";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
-
-
 function Header({setLoggedIn, loggedIn}) {
-
+  const location = useLocation();
+  const currentPath = location.pathname;
   function handleFormSubmit(event) {
     event.preventDefault();
     API.logoutUser()
@@ -26,36 +25,34 @@ function Header({setLoggedIn, loggedIn}) {
 };
 
   return (
-    
-    <header>    
-       
-        <Link to="/home"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Explore
-        </button>
+    <header>
+      {currentPath !== "/home" && (
+        <Link to="/home">
+          <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Explore
+          </button>
         </Link>
-      
-    { loggedIn === false ? (
-      
-        <Navbar setLoggedIn={setLoggedIn}/>
-      
-    ) : (
-      <>
-      <Link to="/submitpost"> <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Add Product
-        </button>
-      </Link>
-      <button onClick={handleFormSubmit} className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sign Out
-        </button>
-      
+      )}
 
-      <b>Swap</b>
-      </>
-    )}
- 
-  </header>
- 
-  )
+      {loggedIn === false ? (
+        <Navbar setLoggedIn={setLoggedIn} />
+      ) : (
+        <>
+          <Link to="/submitpost">
+            {" "}
+            <button className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Add Product
+            </button>
+          </Link>
+          <button onClick={handleFormSubmit} className="btn btn-outline-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign Out
+          </button>
+
+          <b>Swap</b>
+        </>
+      )}
+    </header>
+  );
 
 }
 
