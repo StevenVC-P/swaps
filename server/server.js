@@ -1,27 +1,27 @@
 const express = require("express");
-const session = require('express-session');
+const session = require("express-session");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const MongoStore = require("connect-mongo");
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/swaps", 
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/swaps", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 mongoose.Promise = global.Promise;
-const db = mongoose.connection
+const db = mongoose.connection;
 
-app.use(session({
-    secret: 'my-secret',
+app.use(
+  session({
+    secret: "my-secret",
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/swaps"})
-}));
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/swaps" }),
+  })
+);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -36,6 +36,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
