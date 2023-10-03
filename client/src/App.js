@@ -13,7 +13,6 @@ import Submitpost from "./pages/Submitpost";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import "font-awesome/css/font-awesome.css";
 
 library.add(fab, faHeart);
 
