@@ -1,4 +1,4 @@
-name: Build and deploy Node.js app to Azure Web App - StevenVanCourt
+name: Build and deploy full-stack app to Azure Web App
 
 on:
   push:
@@ -26,36 +26,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # Install and build the server
-      - name: Install and build server
-        run: |
-          npm ci
-          # Assume you have a build script for server, if not remove the next line
-          npm run build --if-present 
-
       # Install and build the client
       - name: Install and build client
         run: |
           cd client
           npm ci
-          npm run build
+          npm run build --if-present
 
-      - name: Zip the server and client builds
-        run: |
-          zip -r server-build.zip ./* -x "client/*"
-          zip -r client-build.zip ./client/build/
+      # Install server dependencies
+      - name: Install server dependencies
+        run: npm ci
+      
+      # Zip both client and server code
+      - name: Zip the full build
+        run: zip -r full-build.zip client/build . -x "node_modules/\*"
 
-      - name: Upload server build artifact
+      # Upload the zipped artifact
+      - name: Upload zipped artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: server-build-artifact
-          path: server-build.zip
-
-      - name: Upload client build artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: client-build-artifact
-          path: client-build.zip
+          name: full-build-artifact
+          path: full-build.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -65,27 +56,21 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download server build artifact
+      # Download zipped artifact from build job
+      - name: Download zipped artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: server-build-artifact
+          name: full-build-artifact
 
-      - name: Download client build artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: client-build-artifact
+      # Unzip the build artifact
+      - name: Unzip the build artifact
+        run: unzip full-build.zip -d ./unzipped-build
 
-      - name: Unzip server build
-        run: unzip server-build.zip -d ./server
-
-      - name: Unzip client build
-        run: unzip client-build.zip -d ./client
-
-      # Deploy to Azure Web App (you might need to adjust this part based on how your Azure app expects files)
+      # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'Swaps'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6793DE84C4C54BF291358D26ED28C933 }}
-          package: ./server  # Make sure your Azure app knows how to serve both front-end and back-end
+          package: ./unzipped-build/
