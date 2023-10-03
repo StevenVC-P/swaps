@@ -7,7 +7,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && react-scripts start",
     "seed": "node scripts/seedDB.js",
