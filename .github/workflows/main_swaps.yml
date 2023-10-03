@@ -68,6 +68,9 @@ jobs:
       - name: Unzip the build artifact
         run: unzip full-build.zip -d ./unzipped-build
 
+      - name: List Unzipped Files
+        run: ls -R ./unzipped-build
+
       # New Step: Install server dependencies
       - name: Install server dependencies
         run: |
@@ -79,9 +82,6 @@ jobs:
         run: |
           cd unzipped-build/client
           npm install
-
-      - name: List Unzipped Files
-        run: ls -R ./unzipped-build
 
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
