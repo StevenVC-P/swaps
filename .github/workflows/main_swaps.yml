@@ -68,6 +68,18 @@ jobs:
       - name: Unzip the build artifact
         run: unzip full-build.zip -d ./unzipped-build
 
+      # New Step: Install server dependencies
+      - name: Install server dependencies
+        run: |
+          cd unzipped-build/server
+          npm install
+
+      # New Step: Optionally, install client dependencies if needed
+      - name: Install client dependencies
+        run: |
+          cd unzipped-build/client/build
+          npm install
+
       - name: List Unzipped Files
         run: ls -R ./unzipped-build
 
