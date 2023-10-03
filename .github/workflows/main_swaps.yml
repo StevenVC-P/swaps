@@ -41,7 +41,7 @@ jobs:
 
       # Zip both client and server code
       - name: Zip the full build
-        run: zip -r full-build.zip server -x "server/node_modules/*"
+        run: zip -r full-build.zip client server -x "server/node_modules/*" "client/node_modules/*"
 
       # Upload the zipped artifact
       - name: Upload zipped artifact for deployment job
@@ -71,13 +71,13 @@ jobs:
       - name: List Unzipped Files
         run: ls -R ./unzipped-build
 
-      # New Step: Install server dependencies
+      # Install server dependencies
       - name: Install server dependencies
         run: |
           cd unzipped-build/server
           npm install
 
-      # New Step: Verify Client Build Files
+      # Verify Client Build Files
       - name: Verify Client Build Files
         run: ls -R ./unzipped-build/client/build
 
