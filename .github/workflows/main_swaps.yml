@@ -39,11 +39,6 @@ jobs:
           cd server
           npm ci
 
-      # New Step: MongoDB data import
-      - name: Import MongoDB data
-        run: |
-          mongoimport --host=<Your-Host> --db=<Your-DB> --collection=<Your-Collection> --type=json --file=<Your-File> --jsonArray
-      
       # Zip both client and server code
       - name: Zip the full build
         run: zip -r full-build.zip client/build server -x "server/node_modules/*" "client/node_modules/*"
