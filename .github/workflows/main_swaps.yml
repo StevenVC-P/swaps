@@ -77,6 +77,16 @@ jobs:
           cd unzipped-build/server
           npm install
 
+      # New Step: Verify Client Build Files
+      - name: Verify Client Build Files
+        run: ls -R ./unzipped-build/client/build
+
+      # New Step: Move client build to appropriate location
+      # Assuming that your server expects client build files to be in /wwwroot/server/client/build
+      - name: Move client build to appropriate location
+        run: |
+          mv ./unzipped-build/client/build ./unzipped-build/server/client/build
+
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
