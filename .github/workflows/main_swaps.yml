@@ -21,7 +21,7 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v3
         with:
-          path: node_modules
+          path: '**/node_modules'
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
@@ -31,15 +31,17 @@ jobs:
         run: |
           cd client
           npm ci
-          npm run build --if-present
+          npm run build
 
       # Install server dependencies
       - name: Install server dependencies
-        run: npm ci
+        run: |
+          cd server
+          npm ci
       
       # Zip both client and server code
       - name: Zip the full build
-        run: zip -r full-build.zip client/build . -x "node_modules/\*"
+        run: zip -r full-build.zip client/build server -x "server/node_modules/\*"
 
       # Upload the zipped artifact
       - name: Upload zipped artifact for deployment job
