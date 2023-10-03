@@ -77,7 +77,7 @@ jobs:
       # New Step: Optionally, install client dependencies if needed
       - name: Install client dependencies
         run: |
-          cd unzipped-build/client/build
+          cd unzipped-build/client
           npm install
 
       - name: List Unzipped Files
