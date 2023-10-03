@@ -25,7 +25,7 @@ export default function Register( { setLoggedIn } ) {
                 if(res.status === 200){
                     setLoggedIn(true)
                     console.log("Success! Logged in!")
-                    history.push('/home')
+                    history("/home");
                 } else {
                     console.log(res.status)
                 }
