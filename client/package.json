@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001/",
   "homepage": "http://swaps.azurewebsites.net",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
     "axios": "^1.5.1",
