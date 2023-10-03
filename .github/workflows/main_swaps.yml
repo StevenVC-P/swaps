@@ -41,7 +41,7 @@ jobs:
       
       # Zip both client and server code
       - name: Zip the full build
-        run: zip -r full-build.zip client/build server -x "server/node_modules/\*"
+        run: zip -r full-build.zip client/build server -x "server/node_modules/\*" "client/node_modules/\*"
 
       # Upload the zipped artifact
       - name: Upload zipped artifact for deployment job
