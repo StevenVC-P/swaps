@@ -77,12 +77,6 @@ jobs:
           cd unzipped-build/server
           npm install
 
-      # New Step: Optionally, install client dependencies if needed
-      - name: Install client dependencies
-        run: |
-          cd unzipped-build/client
-          npm install
-
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
