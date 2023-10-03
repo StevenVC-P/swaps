@@ -81,17 +81,6 @@ jobs:
       - name: Verify Client Build Files
         run: ls -R ./unzipped-build/client/build
 
-      # Ensure the destination directory exists
-      - name: Create destination directory for client build
-        run: |
-          mkdir -p ./unzipped-build/server/client
-
-      # New Step: Move client build to appropriate location
-      # Assuming that your server expects client build files to be in /wwwroot/server/client/build
-      - name: Move client build to appropriate location
-        run: |
-          mv ./unzipped-build/client/build ./unzipped-build/server/client
-
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
