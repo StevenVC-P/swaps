@@ -79,7 +79,7 @@ jobs:
 
       # Verify Client Build Files
       - name: Verify Client Build Files
-        run: ls -R ./unzipped-build/client/build
+        run: ls -R ./unzipped-build/server/client/build
 
       # Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
